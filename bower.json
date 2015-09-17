@@ -1,0 +1,23 @@
+{
+  "name": "WayFinder",
+  "version": "0.5.0",
+  "authors": [
+    "JaydenSpencer"
+  ],
+  "description": "WayFinder Map Creator Web Application",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "font-awesome": "fontawesome#~4.4.0",
+    "jquery-ui": "~1.11.4",
+    "hover": "~2.0.2",
+    "jquery": "~2.1.4"
+  }
+}

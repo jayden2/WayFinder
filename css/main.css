@@ -1,0 +1,23 @@
+.layers {
+  height: 300px;
+  overflow-y: hidden; }
+  .layers ul {
+    height: 100%; }
+  .layers input {
+    width: 100%;
+    border: 1px;
+    background: none; }
+
+.layers:hover {
+  overflow-y: scroll; }
+
+.fa-check-circle {
+  color: #66CC33; }
+
+.fa-times-circle {
+  color: #FF3333; }
+
+.fa-star {
+  color: #FFCC00; }
+
+/*# sourceMappingURL=style.css.map */

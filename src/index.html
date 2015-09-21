@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Way Finder</title>
+	<!--Bootstrap css-->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<!--Font-awesome css-->
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+	<!--Hover css-->
+	<link rel="stylesheet" href="bower_components/hover/css/hover-min.css">
+	<!--jQuery javascript-->
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<!--Angular Library-->
+	<script src="bower_components/angular/angular.min.js"></script>
+	<!--Angular Route Library-->
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<!--Bootstrap javascript-->
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!--Main Page Styling-->
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-app="WayFinder">
+	<div class="container-fluid">
+		<header>
+			<img src="images/Central-Institute-of-Technology-Logo.gif">
+			<nav>
+				<ol class="breadcrumb">
+					<li><a href="#/">Way Finder Dashboard</a></li>
+					<li><a href="#/">Perth Campus</a></li>
+					<li class="active">Building 1</li>
+					<li class="active">Floor 1</li>
+				</ol>
+			</nav>
+		</header>
+		<div ng-view></div>
+	</div>
+	<!-- Modules -->
+	<script src="js/app.min.js"></script>
+	<!-- Controllers -->
+	<script src="js/controllers/EditorController.min.js"></script>
+	<script src="js/controllers/DashboardController.min.js"></script>
+	<!-- Directives -->
+	<!-- Services -->
+	<script src="js/services/dashboardService.min.js"></script>
+	<script src="js/services/mapService.min.js"></script>
+</body>
+</html>

@@ -8,8 +8,10 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
+	".*",
     "node_modules",
-    "bower_components",
+    "src/bower_components",
+	"build",
     "test",
     "tests"
   ],

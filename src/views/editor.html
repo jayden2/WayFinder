@@ -1,0 +1,125 @@
+<div class="container">
+		<section class="builder row">
+			<aside class="tools col-sm-2">
+				<ul class="nav nav-pills nav-stacked">
+					<li role="presentation" class="active"><a href=""><span class="fa fa-arrows"></span></a></li>
+					<li role="presentation"><a href="">2</a></li>
+					<li role="presentation"><a href="">3</a></li>
+					<li role="presentation"><a href="">4</a></li>
+				</ul>
+			</aside>
+			<canvas class="col-sm-8"></canvas>
+			<aside class="layers col-sm-2">
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation" class="active"><a href=""><input type="text" value="1" disabled="disabled"></a></li>
+						<li role="presentation"><a href=""><input type="text" value="2" disabled="disabled"></a></li>
+						<li role="presentation"><a href=""><input type="text" value="3" disabled="disabled"></a></li>
+						<li role="presentation"><a href=""><input type="text" value="4" disabled="disabled"></a></li>
+					</ul>
+			</aside>
+			<a href="" class="newLayer btn btn-default">new layer +</a>
+			<!-- insert remove layer here -->
+		</section>
+		<section class="information row">
+			<div class="col-sm-9">
+				<nav>
+					<ul class="tableNav nav nav-pills col-sm-8" role="tablist">
+						<li role="presentation" class="active"><a href="">Entities<span class="badge">2</span></a></li>
+						<li><a href="">Selection</a></li>
+					</ul>
+					<div class="dropdown col-sm-4">
+
+						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="filterText">Id descending</span> <span class="caret"></span>
+						</button>
+						<ul class="filterSelection dropdown-menu" aria-labelledby="dropdownMenu1">
+							<li><a href="">Index (0-9)</a></li>
+							<li><a href="">Index (9-0)</a></li>
+							<li><a href="">A - Z</a></li>
+							<li><a href="">Z - A</a></li>
+							<li><a href="">Unlinked nodes</a></li>
+							<li><a href="">Favourited</a></li>
+						</ul>
+						</div>
+				</nav>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Room Name</th>
+							<th>x</th>
+							<th>y</th>
+							<th>Node Link</th>
+							<th>Favourite</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td><input type="text" value="$name"></td>
+							<td>$x</td>
+							<td>$y</td>
+							<td><span class="fa fa-check-circle fa-lg"></span></td>
+							<td><a class="fa fa-star fa-lg"></a></td>
+							<td>edit..</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><input type="text" value="$name"></td>
+							<td>$x</td>
+							<td>$y</td>
+							<td><span class="fa fa-times-circle fa-lg"></span></td>
+							<td><a class="fa fa-star fa-lg"></a></td>
+							<td>edit..</td>
+						</tr>
+						<tr class="danger">
+							<td>3</td>
+							<td><input type="text" value="$name"></td>
+							<td>$x</td>
+							<td>$y</td>
+							<td><span class="fa fa-times-circle fa-lg"></span></td>
+							<td><a class="fa fa-star fa-lg"></a></td>
+							<td>edit..</td>
+						</tr>
+						<tr class="danger">
+							<td>3</td>
+							<td><input type="text" value="$name"></td>
+							<td>$x</td>
+							<td>$y</td>
+							<td><span class="fa fa-times-circle fa-lg"></span></td>
+							<td><a class="fa fa-star fa-lg"></a></td>
+							<td>edit..</td>
+						</tr>
+						<tr class="danger">
+							<td>3</td>
+							<td><input type="text" value="$name"></td>
+							<td>$x</td>
+							<td>$y</td>
+							<td><span class="fa fa-times-circle fa-lg"></span></td>
+							<td><a class="fa fa-star fa-lg"></a></td>
+							<td>edit..</td>
+						</tr>
+						<tr class="danger">
+							<td>3</td>
+							<td><input type="text" value="$name"></td>
+							<td>$x</td>
+							<td>$y</td>
+							<td><span class="fa fa-times-circle fa-lg"></span></td>
+							<td><a class="fa fa-star fa-lg"></a></td>
+							<td>edit..</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<aside class="log col-sm-3">
+				<h2>Log</h2>
+				<ul>
+					<li>Log Entry 1</li>
+					<li>Log Entry 2</li>
+					<li>Log Entry 3</li>
+					<li>Log Entry 4</li>
+				</ul>
+			</aside>				
+		</section>
+	</div>
+	<!-- Functions -->
+	<script src="js/functions.min.js"></script>

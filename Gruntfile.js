@@ -66,6 +66,9 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
+			options: {
+				livereload: true,
+			},
 			stylesheets: {
 				files: 'src/**/*.sass',
 				tasks: [ 'style' ]
@@ -75,14 +78,14 @@ module.exports = function(grunt) {
 				tasks: [ 'uglify' ]
 			},
 			html: {
-				files: 'src/*.html',
-				tasks: [ '' ]
+				files: 'src/**/*.html',
+				tasks: [ 'htmlmin' ]
 			}
 		},
 		connect: {
 			server: {
 				options: {
-					port: 4000,
+					port: 1337,
 					base: 'build',
 					hostname: '*'
 				}

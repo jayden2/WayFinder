@@ -12,7 +12,7 @@
 		</div>
 		<section class="col-lg-4">
 			<ul class="campusSel nav nav-pills nav-stacked">
-				<li role="presentation" class="active" ng-repeat="campus in campusData.campus">{{ campusData.campus }}</li>
+				<li role="presentation" ng-repeat="campus in campuses"><a href="">{{ campus.name }}</a></li>
 				<button type="button" class="btn btn-default">Create Campus+</button>
 			</ul>
 		</section>

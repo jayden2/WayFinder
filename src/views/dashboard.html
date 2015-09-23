@@ -1,40 +1,36 @@
-<div class="container">
+<div class="container" ng-controller="DashboardController">
 		<ul class="nav nav-tabs nav-justified">
-			<li role="presentation" class="active one"><a href="">Campus Selection</a></li>
+			<li role="presentation" class="active"><a href="">Campus Selection</a></li>
 			<li role="presentation"><a href="">Filler</a></li>
 			<li role="presentation"><a href="">Settings</a></li>
 			<li role="presentation"><a href="">Help</a></li>
 		</ul>
-		<div class="row one">
+		<div class="row">
 			<h3 class="col-lg-4">Select Campus</h3>
 			<h3 class="col-lg-4">Select Building</h3>
 			<h3 class="col-lg-4">Select Floor</h3>
 		</div>
-		<aside class="col-lg-4">
+		<section class="col-lg-4">
 			<ul class="campusSel nav nav-pills nav-stacked">
-				<li role="presentation" class="active"><a href="">Perth Campus</a></li>
-				<li role="presentation"><a href="">East Perth</a></li>
-				<li role="presentation"><a href="">Leederville</a></li>
-				<li role="presentation"><a href="">Mt Lawley</a></li>
-				<li role="presentation"><a href="">Nedlands</a></li>
+				<li role="presentation" class="active" ng-repeat="campus in campusData.campus">{{ campusData.campus }}</li>
 				<button type="button" class="btn btn-default">Create Campus+</button>
 			</ul>
-		</aside>
-		<aside class="col-lg-4">
+		</section>
+		<section class="col-lg-4">
 			<ul class="buildingSel nav nav-pills nav-stacked">
 				<li role="presentation" class="active"><a href="">1</a></li>
 				<li role="presentation"><a href="">2</a></li>
 				<li role="presentation"><a href="">3</a></li>
 				<button type="button" class="btn btn-default">Create Building+</button>
 			</ul>
-		</aside>
-		<aside class="col-lg-4">
+		</section>
+		<section class="col-lg-4">
 			<ul class="floorSel nav nav-pills nav-stacked">
 				<li role="presentation" class="active"><a href="">1</a></li>
 				<li role="presentation"><a href="">2</a></li>
 				<li role="presentation"><a href="">3</a></li>
 				<button type="button" class="btn btn-default">Create Floor+</button>
 			</ul>
-		</aside>
+		</section>
 		<a class="btn btn-default btn-lg" href="#/editor/">Confirm Selection</a>
 	</div>

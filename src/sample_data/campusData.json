@@ -1,12 +1,12 @@
 [
-  {
-  	"name": "Perth",
-	"building": ["1", "2"],
-	"floor": ["1", "2", "3"]
-  },
-  {
-  	"name": "East Perth",
-	"building": ["1", "2"],
-	"floor": ["1", "2", "3"]
-  }
+	{
+	  "name": "Perth",
+	  "building": [{"name": "Building 1"}, {"name": "Building 2"}, {"name": "Building 6"}],
+	  "floor": [{"name": "Floor 1"}, {"name": "Floor 2"}]
+	},
+	{
+	  "name": "East Perth",
+	  "building": [{"name": "Building 1"}, {"name": "Building 0"}],
+	  "floor": [{"name": "Floor 1"}, {"name": "Floor 2"}]
+	}
 ]

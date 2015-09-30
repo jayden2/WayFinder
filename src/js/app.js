@@ -1,7 +1,7 @@
 var app = angular.module('WayFinder', ['ngRoute']);
 app.config(function($routeProvider) {
 	$routeProvider
-	.when('/editor', {
+	.when('/editor/', {
 		controller: 'EditorController',
 		templateUrl: 'views/editor.html'
 	})

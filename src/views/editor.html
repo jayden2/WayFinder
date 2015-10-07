@@ -17,8 +17,6 @@
 					<li role="presentation"><a href=""><input type="text" value="4" disabled="disabled" /></a></li>
 				</ul>
 		</aside>
-		<a href="" class="newLayer btn btn-default">new layer +</a>
-		<!-- insert remove layer here -->
 	</section>
 	<section class="information row">
 		<div class="col-sm-9">
@@ -52,59 +50,14 @@
 						<th>Favourite</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td><input type="text" value="$name" /></td>
-						<td>$x</td>
-						<td>$y</td>
-						<td><span class="fa fa-check-circle fa-lg"></span></td>
-						<td><a class="fa fa-star fa-lg"></a></td>
-						<td>edit..</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td><input type="text" value="$name" /></td>
-						<td>$x</td>
-						<td>$y</td>
-						<td><span class="fa fa-times-circle fa-lg"></span></td>
-						<td><a class="fa fa-star fa-lg"></a></td>
-						<td>edit..</td>
-					</tr>
-					<tr class="danger">
-						<td>3</td>
-						<td><input type="text" value="$name" /></td>
-						<td>$x</td>
-						<td>$y</td>
-						<td><span class="fa fa-times-circle fa-lg"></span></td>
-						<td><a class="fa fa-star fa-lg"></a></td>
-						<td>edit..</td>
-					</tr>
-					<tr class="danger">
-						<td>3</td>
-						<td><input type="text" value="$name" /></td>
-						<td>$x</td>
-						<td>$y</td>
-						<td><span class="fa fa-times-circle fa-lg"></span></td>
-						<td><a class="fa fa-star fa-lg"></a></td>
-						<td>edit..</td>
-					</tr>
-					<tr class="danger">
-						<td>3</td>
-						<td><input type="text" value="$name" /></td>
-						<td>$x</td>
-						<td>$y</td>
-						<td><span class="fa fa-times-circle fa-lg"></span></td>
-						<td><a class="fa fa-star fa-lg"></a></td>
-						<td>edit..</td>
-					</tr>
-					<tr class="danger">
-						<td>3</td>
-						<td><input type="text" value="$name" /></td>
-						<td>$x</td>
-						<td>$y</td>
-						<td><span class="fa fa-times-circle fa-lg"></span></td>
-						<td><a class="fa fa-star fa-lg"></a></td>
+				<tbody >
+					<tr ng-repeat="map in maps">
+						<td>{{ maps.length }}</td>
+						<td><input type="text" value="{{ map.name }}" /></td>
+						<td>{{ map.dimensions.x }}</td>
+						<td>{{ map.dimensions.y }}</td>
+						<td><span class="fa fa-check-circle fa-lg" ng-value="{{ map.link }}"></span></td>
+						<td><a class="fa fa-star fa-lg" ng-value="{{ map.favourite }}"></a></td>
 						<td>edit..</td>
 					</tr>
 				</tbody>

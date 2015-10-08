@@ -4,24 +4,105 @@
 		"link": true,
 		"favourite": false,
 		"x": 11,
-		"dimensions":
-		{
-			"x": 11,
-			"y": 22,
-			"height": 22,
-			"width": 33
-		}
+		"polygons":
+		[
+			{
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}
+		]
 	},
 	{
 		"name": "B119",
 		"link": false,
 		"favourite": true,
-		"dimensions":
-		{
-			"x": 55,
-			"y": 32,
-			"height": 18,
-			"width": 976
-		}
+		"polygons":
+		[
+			{
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}
+		]
+	},
+	{
+		"name": "B119",
+		"link": false,
+		"favourite": true,
+		"polygons":
+		[
+			{
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}
+		]
+	},
+	{
+		"name": "B119",
+		"link": false,
+		"favourite": true,
+		"polygons":
+		[
+			{
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}
+		]
+	},
+	{
+		"name": "B119",
+		"link": false,
+		"favourite": true,
+		"polygons":
+		[
+			{
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}, {
+				"x": 55,
+				"y": 32
+			}
+		]
 	}
 ]

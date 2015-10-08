@@ -3,4 +3,6 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 		$scope.maps = data;
 		console.log($scope.maps);
 	});
+	$scope.favouriteState = function() {
+    };
 }]);

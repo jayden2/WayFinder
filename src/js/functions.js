@@ -1,54 +1,37 @@
 $(document).ready(function() {
 	var logType, logFrom, logTo;
 	//tools switch selection
-	$(".tools li").click(function(e)
+	$(document).on('click', '.tools li', function(e)
 	{
 		e.preventDefault();
 		$(".tools li.active").removeClass("active");
 		$(this).addClass("active");
 	});
 	//layer switch selection
-	$(document).on('click', '.layers li', function(e) 
+	$(document).on('click', '.layers li', function(e)
 	{
 		e.preventDefault();
 		$(".layers li.active").removeClass("active");
 		$(this).addClass("active");
 	});
-	//create a new layer
-	$(".newLayer").click(function(e)
-	{
-		e.preventDefault();
-		var layerAmount = $(".layers li").length + 1;
-		var newLayer = $('<li role="presentation"><a href="#"><input type="text" value="' + layerAmount + '" disabled="disabled"></a></li>');
-		$(".layers ul").append(newLayer);
-
-		logState("newLayer");
-	});
-	//layer change selection text into text box
-	$(document).on('dblclick', '.layers li', function()
-	{
-		$('input', this).removeAttr('disabled');
-		$('input', this).focus();
-		$('input', this).select();
-		logFrom = $('input', this).val();
-	});
-	$(document).on('blur', '.layers input', function() {
-		$(this).attr('disabled', true);
-		logTo = $(this).val();
-		logState("layerNameChanged");
-	});
 	//changes filter selection
-	$(".filterSelection a").click(function(e)
+	$(document).on('click', '.filterSelection a', function(e) 
 	{
 		e.preventDefault();
     	$(".filterText").text(this.innerHTML);
 	});
 	//swtich selection between entities and selection
-	$(".tableNav li").click(function(e)
+	$(document).on('click', '.tableNav li', function(e)
 	{
-		e.preventDefault();
 		$(".tableNav li.active").removeClass("active");
 		$(this).addClass("active");
+	});
+	//favourite switch state
+	$(document).on('click', '.star', function(e)
+	{
+		e.preventDefault();
+		$(this).toggleClass('fa-star-o','fa-star');
+		$(this).toggleClass('fa-star','fa-star-o');
 	});
 	//The Log: Choose State
 	function logState(logType)

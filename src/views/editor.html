@@ -24,23 +24,25 @@
 		<section class="information">
 			<div class="col-sm-9">
 				<nav>
-					<ul class="tableNav nav nav-pills col-sm-8" role="tablist">
+					<ul class="tableNav nav nav-pills col-sm-6" role="tablist">
 						<li role="presentation" class="active"><a href="">Entities<span class="badge">2</span></a></li>
 						<li><a href="">Selection</a></li>
 					</ul>
-					<div class="dropdown col-sm-4">
-
+					<div class="col-sm-4">
+						<input class="form-control" type="text" ng-model="filters.name" placeholder="Search"/>
+					</div>
+					<div class="dropdown col-sm-2">
 						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="filterText">Id descending</span> <span class="caret"></span>
 						</button>
 						<ul class="filterSelection dropdown-menu" aria-labelledby="dropdownMenu1">
-							<li><a href="" ng-click="selectionFilter('')">Index (0-9)</a></li>
-							<li><a href="" ng-click="selectionFilter('')">Index (9-0)</a></li>
-							<li><a href="" ng-click="selectionFilter('')">A - Z</a></li>
-							<li><a href="" ng-click="selectionFilter('')">Z - A</a></li>
+							<li><a href="" ng-click="order('num0')">Index (0-9)</a></li>
+							<li><a href="" ng-click="order('num9')">Index (9-0)</a></li>
+							<li><a href="" ng-click="order('nameA')">A - Z</a></li>
+							<li><a href="" ng-click="order('nameZ')">Z - A</a></li>
 							<li><a href="" ng-click="selectionFilter('unlink')">Unlinked nodes</a></li>
 							<li><a href="" ng-click="selectionFilter('favourite')">Favourited</a></li>
 						</ul>
-						</div>
+					</div>
 				</nav>
 				<table class="table table-striped table-hover">
 					<thead>
@@ -54,7 +56,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="map in maps | filter:filters">
+						<tr ng-repeat="map in maps | filter:filters | orderBy:predicate:reverse">
 							<td>{{ ($index + 1) }}</td>
 							<td><input type="text" value="{{ map.name | uppercase }}" /></td>
 							<td>0</td>

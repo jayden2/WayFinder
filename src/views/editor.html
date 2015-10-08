@@ -33,12 +33,12 @@
 						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="filterText">Id descending</span> <span class="caret"></span>
 						</button>
 						<ul class="filterSelection dropdown-menu" aria-labelledby="dropdownMenu1">
-							<li><a href="">Index (0-9)</a></li>
-							<li><a href="">Index (9-0)</a></li>
-							<li><a href="">A - Z</a></li>
-							<li><a href="">Z - A</a></li>
-							<li><a href="">Unlinked nodes</a></li>
-							<li><a href="">Favourited</a></li>
+							<li><a href="" ng-click="selectionFilter('')">Index (0-9)</a></li>
+							<li><a href="" ng-click="selectionFilter('')">Index (9-0)</a></li>
+							<li><a href="" ng-click="selectionFilter('')">A - Z</a></li>
+							<li><a href="" ng-click="selectionFilter('')">Z - A</a></li>
+							<li><a href="" ng-click="selectionFilter('unlink')">Unlinked nodes</a></li>
+							<li><a href="" ng-click="selectionFilter('favourite')">Favourited</a></li>
 						</ul>
 						</div>
 				</nav>
@@ -54,7 +54,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="map in maps">
+						<tr ng-repeat="map in maps | filter:filters">
 							<td>{{ ($index + 1) }}</td>
 							<td><input type="text" value="{{ map.name | uppercase }}" /></td>
 							<td>0</td>

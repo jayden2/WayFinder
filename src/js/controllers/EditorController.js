@@ -3,25 +3,25 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 		$scope.maps = data;
 	});
 	$scope.filters = { };
-	$scope.predicate = 'map.id';
+	$scope.predicate = 'id';
 	$scope.reverse = false;
 	$scope.order = function(predicate) {
 		$scope.filters = { };
 		if (predicate === 'num0') {
 			$scope.reverse = false;
-			$scope.predicate = 'map.id';
+			$scope.predicate = 'id';
 		}
 		if (predicate === 'num9') {
 			$scope.reverse = true;
-			$scope.predicate = 'map.id';
+			$scope.predicate = 'id';
 		}
 		if (predicate === 'nameA') {
 			$scope.reverse = false;
-			$scope.predicate = 'map.name';
+			$scope.predicate = 'name';
 		}
 		if (predicate === 'nameZ') {
 			$scope.reverse = true;
-			$scope.predicate = 'map.name';
+			$scope.predicate = 'name';
 		}
 	}
 	$scope.selectionFilter = function(query) {

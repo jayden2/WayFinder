@@ -1,5 +1,6 @@
 [
 	{
+		"id": 1,
 		"name": "B223",
 		"link": true,
 		"favourite": false,
@@ -22,6 +23,7 @@
 		]
 	},
 	{
+		"id": 2,
 		"name": "B119",
 		"link": false,
 		"favourite": true,
@@ -43,6 +45,7 @@
 		]
 	},
 	{
+		"id": 3,
 		"name": "Z452",
 		"link": true,
 		"favourite": false,
@@ -64,6 +67,7 @@
 		]
 	},
 	{
+		"id": 4,
 		"name": "F339",
 		"link": false,
 		"favourite": false,
@@ -85,6 +89,7 @@
 		]
 	},
 	{
+		"id": 5,
 		"name": "K242",
 		"link": true,
 		"favourite": true,

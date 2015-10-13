@@ -32,7 +32,7 @@
 						<input class="form-control" type="text" ng-model="filters.name" placeholder="Search"/>
 					</div>
 					<div class="dropdown col-sm-2">
-						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="filterText">Id descending</span> <span class="caret"></span>
+						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="filterText">Index (0-9)</span> <span class="caret"></span>
 						</button>
 						<ul class="filterSelection dropdown-menu" aria-labelledby="dropdownMenu1">
 							<li><a href="" ng-click="order('num0')">Index (0-9)</a></li>
@@ -57,7 +57,7 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="map in maps | filter:filters | orderBy:predicate:reverse">
-							<td>{{ ($index + 1) }}</td>
+							<td>{{ map.id }}</td>
 							<td><input type="text" value="{{ map.name | uppercase }}" /></td>
 							<td>0</td>
 							<td>0</td>

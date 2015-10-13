@@ -3,16 +3,17 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 		$scope.maps = data;
 	});
 	$scope.filters = { };
-	$scope.predicate = 'map.name';
+	$scope.predicate = 'map.id';
 	$scope.reverse = false;
 	$scope.order = function(predicate) {
-		console.log(predicate);
 		$scope.filters = { };
 		if (predicate === 'num0') {
-			//unsure
+			$scope.reverse = false;
+			$scope.predicate = 'map.id';
 		}
 		if (predicate === 'num9') {
-			//unsure
+			$scope.reverse = true;
+			$scope.predicate = 'map.id';
 		}
 		if (predicate === 'nameA') {
 			$scope.reverse = false;

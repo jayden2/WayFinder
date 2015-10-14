@@ -26,13 +26,6 @@ $(document).ready(function() {
 		$(".tableNav li.active").removeClass("active");
 		$(this).addClass("active");
 	});
-	//favourite switch state
-	$(document).on('click', '.star', function(e)
-	{
-		e.preventDefault();
-		$(this).toggleClass('fa-star-o','fa-star');
-		$(this).toggleClass('fa-star','fa-star-o');
-	});
 	//The Log: Choose State
 	function logState(logType)
 	{

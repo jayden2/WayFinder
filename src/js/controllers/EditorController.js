@@ -34,6 +34,4 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 			$scope.filters = { };
 		}
 	}
-	$scope.favouriteState = function() {
-    };
 }]);

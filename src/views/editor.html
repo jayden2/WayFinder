@@ -61,8 +61,12 @@
 							<td><input type="text" value="{{ map.name | uppercase }}" /></td>
 							<td>0</td>
 							<td>0</td>
-							<td><span class="fa fa-check-circle fa-lg" data-id="{{ map.link }}"></span><span class="fa fa-times-circle fa-lg"></span></td>
-							<td><a class="star fa fa-star fa-lg" data-id="{{ map.favourite }}" ng-click="favouriteState(favourite)"></a></td>
+							<td>
+								<span class="fa fa-lg" data-id="{{ map.link }}" ng-class="{true: 'fa-times-circle', false: 'fa-check-circle'}[!map.link]"></span>
+							</td>
+							<td>
+								<a class="star fa fa-star fa-lg" data-id="{{ map.favourite }}" ng-class="{true: 'fa-star-o', false: 'fa-star'}[!map.favourite]" ng-click="map.favourite = !map.favourite"></a>
+							</td>
 							<td>edit..</td>
 						</tr>
 					</tbody>

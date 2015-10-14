@@ -25,7 +25,7 @@
 			<div class="col-sm-9">
 				<nav>
 					<ul class="tableNav nav nav-pills col-sm-6" role="tablist">
-						<li role="presentation" class="active"><a href="">Entities<span class="badge">2</span></a></li>
+						<li role="presentation" class="active"><a href="">Entities<span class="badge">{{ unlinkedNodes() }}</span></a></li>
 						<li><a href="">Selection</a></li>
 					</ul>
 					<div class="search col-sm-4">
@@ -60,7 +60,7 @@
 						<tr><td ng-hide="filtered.length">No results found!</td></tr>
 						<tr ng-repeat="map in filtered = (maps | filter:filters) | orderBy:predicate:reverse">
 							
-							<td ng-model="count">{{ map.id }}</td>
+							<td>{{ map.id }}</td>
 							<td><input type="text" value="{{ map.name | uppercase }}" /></td>
 							<td>0</td>
 							<td>0</td>

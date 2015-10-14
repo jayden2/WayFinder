@@ -3,10 +3,10 @@
 		<section class="builder">
 			<aside class="tools col-sm-2">
 				<ul class="nav nav-pills nav-stacked">
-					<li role="presentation" class="active"><a href=""><span class="fa fa-arrows"></span></a></li>
-					<li role="presentation"><a href="">2</a></li>
-					<li role="presentation"><a href="">3</a></li>
-					<li role="presentation"><a href="">4</a></li>
+					<li role="presentation" class="active"><a href=""><span class="fa fa-mouse-pointer"></span></a></li>
+					<li role="presentation"><a href=""><span class="fa fa-arrows"></span></a></li>
+					<li role="presentation"><a href=""><span class="fa fa-pencil"></span></a></li>
+					<li role="presentation"><a href=""><span class="fa fa-th"></span></a></li>
 				</ul>
 			</aside>
 			<canvas class="col-sm-8"></canvas>
@@ -28,8 +28,9 @@
 						<li role="presentation" class="active"><a href="">Entities<span class="badge">2</span></a></li>
 						<li><a href="">Selection</a></li>
 					</ul>
-					<div class="col-sm-4">
-						<input class="form-control" type="text" ng-model="filters.name" placeholder="Search"/>
+					<div class="search col-sm-4">
+						<label><span class="fa fa-search"></span></label>
+						<input id="search-input" class="form-control" type="text" ng-model="filters.name" placeholder="Search Room Name"/>
 					</div>
 					<div class="dropdown col-sm-2">
 						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="filterText">Index (0-9)</span> <span class="caret"></span>
@@ -56,8 +57,10 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="map in maps | filter:filters | orderBy:predicate:reverse">
-							<td>{{ map.id }}</td>
+						<tr><td ng-hide="filtered.length">No results found!</td></tr>
+						<tr ng-repeat="map in filtered = (maps | filter:filters) | orderBy:predicate:reverse">
+							
+							<td ng-model="count">{{ map.id }}</td>
 							<td><input type="text" value="{{ map.name | uppercase }}" /></td>
 							<td>0</td>
 							<td>0</td>
@@ -71,6 +74,7 @@
 						</tr>
 					</tbody>
 				</table>
+				<p>showing {{ filtered.length }} of {{ maps.length }} rooms</p>
 			</div>
 			<aside class="log col-sm-3">
 				<h2>Log</h2>

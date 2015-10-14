@@ -1,5 +1,30 @@
+.topBar {
+  height: 12px;
+  background-color: #dd4814; }
+
+header > img {
+  padding: 0.35%; }
+
+.breadcrumb {
+  background-color: #f5f5f5;
+  border-radius: 0px; }
+
 canvas {
   background-color: #999999; }
+
+a {
+  color: #5e5e5e; }
+
+.search {
+  position: relative; }
+
+.search label {
+  position: absolute;
+  top: 7px;
+  left: 25px; }
+
+#search-input {
+  padding-left: 30px; }
 
 *:focus {
   outline: 0 !important; }
@@ -30,3 +55,33 @@ canvas {
   color: #F6AE0D;
   text-decoration: none;
   cursor: pointer; }
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus {
+  color: #fff;
+  background-color: #dd4814; }
+
+.nav-pills > li.active > a:hover {
+  color: #fff;
+  background-color: #d74816; }
+
+.nav-pills > .active > a > .badge {
+  color: #dd4814; }
+
+.layers {
+  padding-left: 0; }
+  .layers .nav-pills {
+    width: 65%; }
+    .layers .nav-pills li > a {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px; }
+
+.tools {
+  padding-right: 0;
+  text-align: right; }
+  .tools .nav-pills {
+    width: 65%;
+    float: right; }
+    .tools .nav-pills li > a {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px; }

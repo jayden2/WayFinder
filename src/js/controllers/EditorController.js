@@ -34,4 +34,11 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 			$scope.filters = { };
 		}
 	}
+	/*$scope.link.remaining = function() {
+		var count = 0;
+		angular.forEach($scope.maps.link, function(notLinked) {
+			count += notLinked.link ? 0 : 1;
+		});
+		return count;
+	}*/
 }]);

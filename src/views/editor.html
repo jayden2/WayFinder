@@ -57,9 +57,9 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr><td ng-hide="filtered.length">No results found!</td></tr>
-						<tr ng-repeat="map in filtered = (maps | filter:filters) | orderBy:predicate:reverse">
-							
+						<tr><td colspan="6" ng-hide="filtered.length">No results found!</td></tr>
+						<tr ng-repeat="map in filtered = (maps | filter:filters) | orderBy:predicate:reverse"
+							ng-class="{true: 'default', false: 'danger'}[map.name.length]">
 							<td>{{ map.id }}</td>
 							<td><input type="text" value="{{ map.name | uppercase }}" /></td>
 							<td>0</td>
@@ -70,11 +70,11 @@
 							<td>
 								<a class="star fa fa-star fa-lg" data-id="{{ map.favourite }}" ng-class="{true: 'fa-star-o', false: 'fa-star'}[!map.favourite]" ng-click="map.favourite = !map.favourite"></a>
 							</td>
-							<td>edit..</td>
+							<td><a href="">select ></a></td>
 						</tr>
 					</tbody>
 				</table>
-				<p>showing {{ filtered.length }} of {{ maps.length }} rooms</p>
+				<p id="showing">showing: {{ filtered.length }} of {{ maps.length }} rooms</p>
 			</div>
 			<aside class="log col-sm-3">
 				<h2>Log</h2>
@@ -88,3 +88,4 @@
 		</section>
 	</div>
 </div>
+<footer></footer>

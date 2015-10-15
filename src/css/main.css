@@ -15,6 +15,10 @@ canvas {
 a {
   color: #5e5e5e; }
 
+a:hover,
+a:focus {
+  color: #d74816; }
+
 .search {
   position: relative; }
 
@@ -56,6 +60,10 @@ a {
   text-decoration: none;
   cursor: pointer; }
 
+.nav-pills > li > a,
+.nav-pills > li > a:hover {
+  color: #434343; }
+
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:focus {
   color: #fff;
@@ -85,3 +93,28 @@ a {
     .tools .nav-pills li > a {
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px; }
+
+.table {
+  border-bottom: 1px; }
+
+.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover,
+.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr:hover > .active,
+.table-hover > tbody > tr.active:hover > th {
+  background-color: #d6d6d6; }
+
+#showing {
+  margin-top: -15px;
+  padding-right: 10px;
+  float: right; }
+
+footer {
+  bottom: 0;
+  width: 100%;
+  height: 18px;
+  background-color: #434343; }
+
+.footerDashboard {
+  position: fixed;
+  left: 0; }

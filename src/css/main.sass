@@ -1,5 +1,11 @@
 $orange-base: #dd4814
 $orange-hover: #d74816
+::selection
+	color: white
+	background: rgba(221, 72, 20, 0.7)
+::-moz-selection
+	color: white
+	background: rgba(221, 72, 20, 0.7)
 .topBar
 	height: 12px
 	background-color: $orange-base
@@ -85,6 +91,11 @@ a:focus
 	margin-top: -15px
 	padding-right: 10px
 	float: right
+	color: #828080
+	user-select: none
+	-moz-user-select: none
+#showing:hover
+	cursor: default
 footer
 	bottom: 0
 	width: 100%

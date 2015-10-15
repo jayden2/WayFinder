@@ -1,10 +1,12 @@
 app.controller('EditorController',['$scope', 'mapService', function($scope, mapService) {
 	mapService.success(function(data) {
 		$scope.maps = data;
-	
+
 		$scope.filters = { };
 		$scope.predicate = 'id';
 		$scope.reverse = false;
+		$scope.entitiesState = true;
+
 		$scope.order = function(predicate) {
 			$scope.filters = { };
 			if (predicate === 'num0') {
@@ -40,6 +42,14 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 				count += !map.link ? 1 : 0;
 			});
 			return count;
+		}
+		$scope.entitiesSwitch = function() {
+			console.log($scope.entitiesState);
+			if ($scope.entitiesState) {
+				$scope.entitiesState = false;
+			} else {
+				$scope.entitiesState = true;
+			}
 		}
 	});
 }]);

@@ -1,7 +1,7 @@
 <div ng-controller="EditorController">
 	<div class="container-fluid">
 		<section class="builder">
-			<aside class="tools col-sm-2">
+			<aside class="tools col-xs-2">
 				<ul class="nav nav-pills nav-stacked">
 					<li role="presentation" class="active"><a href=""><span class="fa fa-mouse-pointer"></span></a></li>
 					<li role="presentation"><a href=""><span class="fa fa-arrows"></span></a></li>
@@ -9,8 +9,8 @@
 					<li role="presentation"><a href=""><span class="fa fa-th"></span></a></li>
 				</ul>
 			</aside>
-			<canvas class="col-sm-8"></canvas>
-			<aside class="layers col-sm-2">
+			<canvas class="col-xs-8"></canvas>
+			<aside class="layers col-xs-2">
 					<ul class="nav nav-pills nav-stacked">
 						<li role="presentation" class="active"><a href="">Top</a></li>
 						<li role="presentation"><a href="">Node</a></li>
@@ -22,17 +22,17 @@
 	</div>
 	<div class="container">
 		<section class="information">
-			<div class="col-sm-9">
+			<div class="col-xs-9">
 				<nav>
-					<ul class="tableNav nav nav-pills col-sm-6" role="tablist">
-						<li role="presentation" class="active"><a href="" ng-click="entitiesSwitch()">Entities<span class="badge">{{ unlinkedNodes() }}</span></a></li>
-						<li><a href="" ng-click="{{ entitiesState }}">Selection</a></li>
+					<ul class="tableNav nav nav-pills col-xs-6" role="tablist">
+						<li role="presentation" class="active"><a href="" ng-click="entitiesState=true">Entities<span class="badge">{{ unlinkedNodes() }}</span></a></li>
+						<li><a href="" ng-click="entitiesState=false">Selection</a></li>
 					</ul>
-					<div class="search col-sm-4" ng-hide="{{ entitiesState }}">
+					<div class="search col-xs-4" ng-show="entitiesState">
 						<label><span class="fa fa-search"></span></label>
 						<input id="search-input" class="form-control" type="text" ng-model="filters.name" placeholder="Search Room Name"/>
 					</div>
-					<div class="dropdown col-sm-2" ng-hide="{{ entitiesState }}">
+					<div class="dropdown col-xs-2" ng-show="entitiesState">
 						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="filterText">Index (0-9)</span> <span class="caret"></span>
 						</button>
 						<ul class="filterSelection dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -41,11 +41,11 @@
 							<li><a href="" ng-click="order('nameA')">A - Z</a></li>
 							<li><a href="" ng-click="order('nameZ')">Z - A</a></li>
 							<li><a href="" ng-click="selectionFilter('unlink')">Unlinked nodes</a></li>
-							<li><a href="" ng-click="selectionFilter('favourite')">Favourited</a></li>
+							<li><a href="" ng-click="selectionFilter('favourite')">Favourites</a></li>
 						</ul>
 					</div>
 				</nav>
-				<table class="table table-striped table-hover" ng-hide="{{ entitiesState }}">
+				<table class="table table-striped table-hover" ng-show="entitiesState">
 					<thead>
 						<tr>
 							<th>#</th>
@@ -74,13 +74,35 @@
 						</tr>
 					</tbody>
 				</table>
-				<p id="showing">showing: {{ filtered.length }} of {{ maps.length }} rooms</p>
-			</div ng-show="{{ entitiesState }}">
-				<p>selection state is here!</p>
-			<div>
-				
+				<p id="showing" ng-show="entitiesState">showing: {{ filtered.length }} of {{ maps.length }} rooms</p>
+				<table class="table table-striped" ng-show="!entitiesState">
+					<thead>
+						<tr>
+							<th>Room Information</th>
+							<th>Node Information</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>x</td>
+							<td>x</td>
+						</tr>
+						<tr>
+							<td>y</td>
+							<td>y</td>
+						</tr>
+						<tr>
+							<td>width</td>
+							<td>width</td>
+						</tr>
+						<tr>
+							<td>height</td>
+							<td>height</td>
+						</tr>
+					</tbody>
+				</table>	
 			</div>
-			<aside class="log col-sm-3">
+			<aside class="log col-xs-3">
 				<h2>Log</h2>
 				<ul>
 					<li>Log Entry 1</li>
@@ -92,4 +114,4 @@
 		</section>
 	</div>
 </div>
-<footer></footer>
+<footer class="footerEditor"></footer>

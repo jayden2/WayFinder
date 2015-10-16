@@ -1,3 +1,14 @@
+body {
+  min-width: 705px; }
+
+::selection {
+  color: white;
+  background: rgba(221, 72, 20, 0.7); }
+
+::-moz-selection {
+  color: white;
+  background: rgba(221, 72, 20, 0.7); }
+
 .topBar {
   height: 12px;
   background-color: #dd4814; }
@@ -18,6 +29,12 @@ a {
 a:hover,
 a:focus {
   color: #d74816; }
+
+input[type=text]:focus {
+  padding: 2px;
+  margin: 0px;
+  border: 1px solid #dd4814;
+  box-shadow: 0 0 2px rgba(221, 72, 20, 0.8); }
 
 .search {
   position: relative; }
@@ -94,9 +111,6 @@ a:focus {
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px; }
 
-.table {
-  border-bottom: 1px; }
-
 .table-hover > tbody > tr > td.active:hover,
 .table-hover > tbody > tr > th.active:hover,
 .table-hover > tbody > tr.active:hover > td,
@@ -107,13 +121,25 @@ a:focus {
 #showing {
   margin-top: -15px;
   padding-right: 10px;
-  float: right; }
+  float: right;
+  color: #828080;
+  user-select: none;
+  -moz-user-select: none; }
+
+#showing:hover {
+  cursor: default; }
+
+.log {
+  padding-left: 35px; }
 
 footer {
   bottom: 0;
   width: 100%;
   height: 18px;
   background-color: #434343; }
+
+.footerEditor {
+  /*position: absolute */ }
 
 .footerDashboard {
   position: fixed;

@@ -43,13 +43,5 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 			});
 			return count;
 		}
-		$scope.entitiesSwitch = function() {
-			console.log($scope.entitiesState);
-			if ($scope.entitiesState) {
-				$scope.entitiesState = false;
-			} else {
-				$scope.entitiesState = true;
-			}
-		}
 	});
 }]);

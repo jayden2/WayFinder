@@ -6,23 +6,23 @@
 		<li role="presentation"><a href="">Help</a></li>
 	</ul>
 	<div class="row">
-		<h3 class="col-lg-4">Select Campus</h3>
-		<h3 class="col-lg-4">Select Building</h3>
-		<h3 class="col-lg-4">Select Floor</h3>
+		<h3 class="col-xs-4">Select Campus</h3>
+		<h3 class="col-xs-4">Select Building</h3>
+		<h3 class="col-xs-4">Select Floor</h3>
 	</div>
-	<section class="col-lg-4">
+	<section class="col-xs-4">
 		<ul class="campusSel nav nav-pills nav-stacked">
 			<li role="presentation" ng-repeat="campus in campuses | orderBy: 'name'"><a href="" ng-click="campusSelect(campus)">{{ campus.name }}</a></li>
 			<button type="button" class="btn btn-default">Create Campus+</button>
 		</ul>
 	</section>
-	<section class="col-lg-4">
+	<section class="col-xs-4">
 		<ul class="buildingSel nav nav-pills nav-stacked" ng-repeat="campus in campuses | filter:{ name: campusSelected }:true" ng-show="campusIs">
 			<li role="presentation" ng-repeat="building in campus.building | orderBy: 'name'"><a href="" ng-click="buildingSelect(building)">{{ building.name }}</a></li>
 			<button type="button" class="btn btn-default">Create Building+</button>
 		</ul>
 	</section>
-	<section class="col-lg-4">
+	<section class="col-xs-4">
 		<div ng-repeat="campus in campuses | filter:{ name: campusSelected }:true">
 			<ul class="floorSel nav nav-pills nav-stacked" ng-repeat="building in campus.building | filter:{ name: buildingSelected }:true" ng-show="buildingIs">
 				<li role="presentation" ng-repeat="floor in building.floor | orderBy: 'name'"><a href="" ng-click="floorSelect(floor)">{{ floor.name }}</a></li>

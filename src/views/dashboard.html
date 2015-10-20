@@ -5,32 +5,41 @@
 		<li role="presentation"><a href="">Settings</a></li>
 		<li role="presentation"><a href="">Help</a></li>
 	</ul>
-	<div class="row">
+	<div class="headerSel row">
 		<h3 class="col-xs-4">Select Campus</h3>
 		<h3 class="col-xs-4">Select Building</h3>
 		<h3 class="col-xs-4">Select Floor</h3>
 	</div>
-	<section class="col-xs-4">
-		<ul class="campusSel nav nav-pills nav-stacked">
+	<section class="campusSel col-xs-4">
+		<ul class="nav nav-pills nav-stacked">
 			<li role="presentation" ng-repeat="campus in campuses | orderBy: 'name'"><a href="" ng-click="campusSelect(campus)">{{ campus.name }}</a></li>
-			<button type="button" class="btn btn-default">Create Campus+</button>
+			<button type="button" class="btn btn-default" ng-show="!campusIs">Create Campus+</button>
+			<button type="button" class="editBtn btn btn-default" ng-show="campusIs">Edit Campus</button>
 		</ul>
 	</section>
-	<section class="col-xs-4">
-		<ul class="buildingSel nav nav-pills nav-stacked" ng-repeat="campus in campuses | filter:{ name: campusSelected }:true" ng-show="campusIs">
+	<section class="buildingSel col-xs-4">
+		<ul class="nav nav-pills nav-stacked" ng-repeat="campus in campuses | filter:{ name: campusSelected }:true" ng-show="campusIs">
 			<li role="presentation" ng-repeat="building in campus.building | orderBy: 'name'"><a href="" ng-click="buildingSelect(building)">{{ building.name }}</a></li>
-			<button type="button" class="btn btn-default">Create Building+</button>
+			<button type="button" class="btn btn-default" ng-show="!buildingIs">Create Building+</button>
+			<button type="button" class="editBtn btn btn-default" ng-show="buildingIs">Edit Building</button>
 		</ul>
-	</section>
-	<section class="col-xs-4">
-		<div ng-repeat="campus in campuses | filter:{ name: campusSelected }:true">
-			<ul class="floorSel nav nav-pills nav-stacked" ng-repeat="building in campus.building | filter:{ name: buildingSelected }:true" ng-show="buildingIs">
-				<li role="presentation" ng-repeat="floor in building.floor | orderBy: 'name'"><a href="" ng-click="floorSelect(floor)">{{ floor.name }}</a></li>
-				<button type="button" class="btn btn-default">Create Floor+</button>
-			</ul>
+		<div class="noSel" ng-show="!campusIs">
+			<p>No campus is selected.</p>
 		</div>
 	</section>
-	<section class="row">
+	<section class="floorSel col-xs-4">
+		<div ng-repeat="campus in campuses | filter:{ name: campusSelected }:true">
+			<ul class="nav nav-pills nav-stacked" ng-repeat="building in campus.building | filter:{ name: buildingSelected }:true" ng-show="buildingIs">
+				<li role="presentation" ng-repeat="floor in building.floor | orderBy: 'name'"><a href="" ng-click="floorSelect(floor)">{{ floor.name }}</a></li>
+				<button type="button" class="btn btn-default" ng-show="!floorIs">Create Floor+</button>
+				<button type="button" class="editBtn btn btn-default" ng-show="floorIs">Edit Floor</button>
+			</ul>
+		</div>
+		<div class="noSel" ng-show="!buildingIs">
+			<p>No building is selected.</p>
+		</div>
+	</section>
+	<section class="confirmBtn row col-xs-12">
 		<a class="btn btn-default btn-lg" ng-href="#/editor/{{ editorURL }}">Confirm Selection</a>
 	</section>
 </div>

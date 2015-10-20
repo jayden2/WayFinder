@@ -1,25 +1,32 @@
 $(document).ready(function() {
-	$('campusSel ul:nth-child(1)').addClass('active');
-	$('buildingSel li:nth-child(1)').addClass('active');
-	$('floorSel:nth-child(1)').addClass('active');
 	//campus select
 	$(document).on('click', '.campusSel li', function() 
 	{
 		$('.campusSel li.active').removeClass('active');
 		$(this).addClass('active');
-		$('buildingSel li:nth-child(1)').addClass('active');
+	});
+	$(document).on('click', '.campusSel li.active', function() 
+	{
+		$('.campusSel li.active').removeClass('active');
 	});
 	//building select
 	$(document).on('click', '.buildingSel li', function() 
 	{
 		$('.buildingSel li.active').removeClass('active');
 		$(this).addClass('active');
-		$('floorSel ul:first-child').addClass('active');
+	});
+	$(document).on('click', '.buildingSel li.active', function() 
+	{
+		$('.buildingSel li.active').removeClass('active');
 	});
 	//floor select
 	$(document).on('click', '.floorSel li', function() 
 	{
 		$('.floorSel li.active').removeClass('active');
 		$(this).addClass('active');
+	});
+	$(document).on('click', '.floorSel li.active', function() 
+	{
+		$('.floorSel li.active').removeClass('active');
 	});
 });

@@ -3,10 +3,10 @@
 		<section class="builder">
 			<aside class="tools col-xs-2">
 				<ul class="nav nav-pills nav-stacked">
-					<li role="presentation" class="active"><a href=""><span class="fa fa-mouse-pointer"></span></a></li>
-					<li role="presentation"><a href=""><span class="fa fa-arrows"></span></a></li>
-					<li role="presentation"><a href=""><span class="fa fa-pencil"></span></a></li>
-					<li role="presentation"><a href=""><span class="fa fa-th"></span></a></li>
+					<li role="presentation" class="active"><a href="" data-toggle="tooltip" data-placement="left" title="mouse"><span class="fa fa-mouse-pointer"></span></a></li>
+					<li role="presentation"><a href="" data-toggle="tooltip" data-placement="left" title="move"><span class="fa fa-arrows"></span></a></li>
+					<li role="presentation"><a href="" data-toggle="tooltip" data-placement="left" title="draw"><span class="fa fa-pencil"></span></a></li>
+					<li role="presentation"><a href="" data-toggle="tooltip" data-placement="left" title="grid"><span class="fa fa-th"></span></a></li>
 				</ul>
 			</aside>
 			<canvas-editor></canvas-editor>
@@ -59,7 +59,7 @@
 					<tbody>
 						<tr><td colspan="6" ng-hide="filtered.length">No results found!</td></tr>
 						<tr ng-repeat="map in filtered = (maps | filter:filters) | orderBy:predicate:reverse"
-							ng-class="{true: 'default', false: 'danger'}[map.name.length]">
+							ng-class="{true: 'default', false: 'danger'}[map.name.length]"><!--doesnt work yet-->
 							<td>{{ map.id }}</td>
 							<td><input type="text" value="{{ map.name | uppercase }}" /></td>
 							<td>0</td>

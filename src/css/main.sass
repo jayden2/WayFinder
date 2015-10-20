@@ -16,8 +16,6 @@ header > img
 .breadcrumb
 	background-color: #f5f5f5
 	border-radius: 0px
-canvas
-	background-color: #999999
 a
 	color: #5e5e5e
 a:hover,
@@ -28,36 +26,6 @@ input[type=text]:focus
 	margin: 0px
 	border: 1px solid $orange-base
 	box-shadow: 0 0 2px rgba(221, 72, 20, 0.8)
-.search
-	position: relative
-.search label
-	position: absolute
-	top: 7px
-	left: 25px
-#search-input
-	padding-left: 30px
-*:focus
-	outline: 0 !IMPORTANT
-.information
-	padding-top: 2.5%
-.fa-check-circle
-	color: #66CC33
-	cursor: default
-.fa-times-circle
-	color: #FF3333
-	cursor: default
-.fa-star
-	color: #FFCC00
-.fa-star-o
-	color: #FFCC00
-.fa-star:hover
-	color: #F6AE0D
-	text-decoration: none
-	cursor: pointer
-.fa-star-o:hover
-	color: #F6AE0D
-	text-decoration: none
-	cursor: pointer
 .nav-pills > li > a,
 .nav-pills > li > a:hover
 	color: #434343
@@ -70,39 +38,6 @@ input[type=text]:focus
 	background-color: $orange-hover
 .nav-pills > .active > a > .badge
 	color: $orange-base
-.layers
-	padding-left: 0
-	.nav-pills
-		width: 65%
-		li > a
-			border-top-left-radius: 0px
-			border-bottom-left-radius: 0px
-.tools
-	padding-right: 0
-	text-align: right
-	.nav-pills
-		width: 65%
-		float: right
-		li > a
-			border-top-right-radius: 0px
-			border-bottom-right-radius: 0px
-.table-hover > tbody > tr > td.active:hover,
-.table-hover > tbody > tr > th.active:hover,
-.table-hover > tbody > tr.active:hover > td,
-.table-hover > tbody > tr:hover > .active,
-.table-hover > tbody > tr.active:hover > th
-	background-color: #d6d6d6
-#showing
-	margin-top: -15px
-	padding-right: 10px
-	float: right
-	color: #828080
-	user-select: none
-	-moz-user-select: none
-#showing:hover
-	cursor: default
-.log
-	padding-left: 35px
 footer
 	bottom: 0
 	width: 100%
@@ -113,3 +48,6 @@ footer
 .footerDashboard
 	position: fixed
 	left: 0
+
+@import _dashboard
+@import _editor

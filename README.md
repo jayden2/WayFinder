@@ -1,13 +1,13 @@
 # WayFinder
 ###Campus Portal Page
 <ul>
-	<li>confirm selection goes in it own row</li>
-	<li>select building says: please select campus</li>
-	<li>select floor says: please select campus or building</li>
-	<li>create and edit button switch</li>
-	<li>create and edit button bring up modal</li>
+	<li>edit button brings up modal</li>
 	<li>campus selection, tab changes active</li>
 	<li>campus selection, changes show state</li>
+	<li>after selections confirm, gets correct URL string</li>
+	<li>create button brings up modal</li>
+	<li>change edit border color</li>
+	<li>confirm button colour change / enable/disable</li>
 </ul>
 ###Editor Page
 <ul>
@@ -17,5 +17,5 @@
 	<li>log when name change</li>
 	<li>log undo</li>
 	<li>table select goes to selection</li>
-	<li>tools has tool tool tip && shorten width of button</li>
+	<li>fix tab width length problem</li>
 </ul>

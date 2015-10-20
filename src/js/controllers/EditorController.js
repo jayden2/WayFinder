@@ -44,4 +44,5 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 			return count;
 		}
 	});
+	$("[data-toggle=tooltip]").tooltip();
 }]);

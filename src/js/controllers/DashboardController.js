@@ -5,6 +5,7 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 	});
 	$scope.campusIs = false;
 	$scope.buildingIs = false;
+	$scope.floorIs = false;
 	$scope.campusSelect = function(campus) {
 		$scope.campusSelected = campus.name;
 		$scope.editorURL();
@@ -12,16 +13,19 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 		if ($scope.campusPrevSelected != $scope.campusSelected) {
 			$scope.campusPrevSelected = campus.name;
 			$scope.buildingIs = false;
+			$scope.floorIs = false;
 		}
 	}
 	$scope.buildingSelect = function(building) {
 		$scope.buildingSelected = building.name;
 		$scope.editorURL();
 		$scope.buildingIs = true;
+		$scope.floorIs = false;
 	}
 	$scope.floorSelect = function(floor) {
 		$scope.floorSelected = floor.name;
 		$scope.editorURL();
+		$scope.floorIs = true;
 	}
 	$scope.editorURL = function() {
 		$scope.makeURL = '/' + $scope.campusSelected + '/'+ $scope.buildingSelected + '/' + $scope.floorSelected + '/';

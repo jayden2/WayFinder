@@ -1,4 +1,5 @@
 <div class="container" ng-controller="DashboardController">
+	<modal modal-name="modal1" modal-header="header" modal-campus="campusSelectedModal" modal-building="buildingSelectedModal" modal-floor="floorSelectedModal" modal-btn="btnType" data-ng-click-right-button="myRightButton()"></modal>
 	<ul class="nav nav-tabs nav-justified">
 		<li role="presentation" class="active"><a href="">Campus Selection</a></li>
 		<li role="presentation"><a href="">Filler</a></li>
@@ -13,15 +14,16 @@
 	<section class="campusSel col-xs-4">
 		<ul class="nav nav-pills nav-stacked">
 			<li role="presentation" ng-repeat="campus in campuses | orderBy: 'name'"><a href="" ng-click="campusSelect(campus)">{{ campus.name }}</a></li>
-			<button type="button" class="btn btn-default" ng-show="!campusIs">Create Campus+</button>
-			<button type="button" class="editBtn btn btn-default" ng-show="campusIs">Edit Campus</button>
+			<button ng-click="changeCampus(0)" href="#modal1" type="button" class="btn btn-default" data-toggle="modal" ng-show="!campusIs">Create Campus+</button>
+			<button ng-click="changeCampus(1)" href="#modal1" type="button" class="editBtn btn btn-default" data-toggle="modal" ng-show="campusIs">Edit Campus</button>
+			
 		</ul>
 	</section>
 	<section class="buildingSel col-xs-4">
 		<ul class="nav nav-pills nav-stacked" ng-repeat="campus in campuses | filter:{ name: campusSelected }:true" ng-show="campusIs">
 			<li role="presentation" ng-repeat="building in campus.building | orderBy: 'name'"><a href="" ng-click="buildingSelect(building)">{{ building.name }}</a></li>
-			<button type="button" class="btn btn-default" ng-show="!buildingIs">Create Building+</button>
-			<button type="button" class="editBtn btn btn-default" ng-show="buildingIs">Edit Building</button>
+			<button ng-click="changeCampus(2)" href="#modal1" type="button" class="btn btn-default" data-toggle="modal" ng-show="!buildingIs">Create Building+</button>
+			<button ng-click="changeCampus(3)" href="#modal1" type="button" class="editBtn btn btn-default" data-toggle="modal" ng-show="buildingIs">Edit Building</button>
 		</ul>
 		<div class="noSel" ng-show="!campusIs">
 			<p>No campus is selected.</p>
@@ -31,8 +33,8 @@
 		<div ng-repeat="campus in campuses | filter:{ name: campusSelected }:true">
 			<ul class="nav nav-pills nav-stacked" ng-repeat="building in campus.building | filter:{ name: buildingSelected }:true" ng-show="buildingIs">
 				<li role="presentation" ng-repeat="floor in building.floor | orderBy: 'name'"><a href="" ng-click="floorSelect(floor)">{{ floor.name }}</a></li>
-				<button type="button" class="btn btn-default" ng-show="!floorIs">Create Floor+</button>
-				<button type="button" class="editBtn btn btn-default" ng-show="floorIs">Edit Floor</button>
+				<button ng-click="changeCampus(4)" href="#modal1" type="button" class="btn btn-default" data-toggle="modal" ng-show="!floorIs">Create Floor+</button>
+				<button ng-click="changeCampus(5)" href="#modal1" type="button" class="editBtn btn btn-default" data-toggle="modal" ng-show="floorIs">Edit Floor</button>
 			</ul>
 		</div>
 		<div class="noSel" ng-show="!buildingIs">

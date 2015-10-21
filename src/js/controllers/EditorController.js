@@ -6,6 +6,7 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 		$scope.predicate = 'id';
 		$scope.reverse = false;
 		$scope.entitiesState = true;
+		$("[data-toggle=tooltip]").tooltip();
 
 		$scope.order = function(predicate) {
 			$scope.filters = { };
@@ -44,5 +45,4 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 			return count;
 		}
 	});
-	$("[data-toggle=tooltip]").tooltip();
 }]);

@@ -1,5 +1,5 @@
 app.controller('DashboardController',['$scope', 'dashboardService', function($scope, dashboardService) {
-	var makeURL, campusPrevSelected, campusSelected, buildingSelected, floorSelected;
+	var makeURL, campusPrevSelected, buildingPrevSelected, floorPrevSelected, campusSelected, buildingSelected, floorSelected;
 	dashboardService.success(function(data) {
 		$scope.campuses = data;
 	});
@@ -12,26 +12,57 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
     $scope.header = 'Edit Campus';
     $scope.body = 'Selected Campus';
     $scope.btnType = 'Save Changes';
+
 	$scope.campusSelect = function(campus) {
 		$scope.campusSelected = campus.name;
 		$scope.editorURL();
 		$scope.campusIs = true;
+		$scope.buildingIs = false;
+		$scope.floorIs = false;
+		$scope.buildingPrevSelected = "1";
 		if ($scope.campusPrevSelected != $scope.campusSelected) {
 			$scope.campusPrevSelected = campus.name;
+		} else {
+			$scope.campusIs = false;
 			$scope.buildingIs = false;
 			$scope.floorIs = false;
+			$scope.campusPrevSelected = "1";
+			$scope.floorPrevSelected = "1";
 		}
+		console.log('campus: ' + $scope.campusIs);
+		console.log('building: ' + $scope.buildingIs);
+		console.log('floor: ' + $scope.floorIs);
 	}
 	$scope.buildingSelect = function(building) {
 		$scope.buildingSelected = building.name;
 		$scope.editorURL();
 		$scope.buildingIs = true;
 		$scope.floorIs = false;
+		if ($scope.buildingPrevSelected != $scope.buildingSelected) {
+			$scope.buildingPrevSelected = building.name;
+		} else {
+			$scope.buildingIs = false;
+			$scope.floorIs = false;
+			$scope.buildingPrevSelected = "3";
+			$scope.floorPrevSelected = "3";
+		}
+		console.log('campus: ' + $scope.campusIs);
+		console.log('building: ' + $scope.buildingIs);
+		console.log('floor: ' + $scope.floorIs);
 	}
 	$scope.floorSelect = function(floor) {
 		$scope.floorSelected = floor.name;
 		$scope.editorURL();
 		$scope.floorIs = true;
+		if ($scope.floorPrevSelected != $scope.floorSelected) {
+			$scope.floorPrevSelected = floor.name;
+		} else {
+			$scope.floorIs = false;
+			$scope.floorPrevSelected = "4";
+		}
+		console.log('campus: ' + $scope.campusIs);
+		console.log('building: ' + $scope.buildingIs);
+		console.log('floor: ' + $scope.floorIs);
 	}
 	$scope.editorURL = function() {
 		//$scope.makeURL = '/' + $scope.campusSelected + '/'+ $scope.buildingSelected + '/' + $scope.floorSelected + '/';
@@ -46,7 +77,6 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 		switch(type) {
 			case 0:
 				$scope.header = 'Create Campus';
-				$scope.campusSelectedModal = $scope.campusSelected;
 				$scope.campusSelectedModal = '';
 				$scope.buildingSelectedModal = '';
 				$scope.floorSelectedModal = '';
@@ -61,25 +91,29 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 				break;
 			case 2:
 				$scope.header = 'Create Buidling';
-				$scope.buildingSelectedModal = $scope.buildingSelected;
+				$scope.campusSelectedModal = $scope.campusSelected;
 				$scope.buildingSelectedModal = '';
 				$scope.floorSelectedModal = '';
 				$scope.btnType = 'Create';
 				break;
 			case 3:
-				$scope.header = 'Edit Buidling';
+				$scope.header = 'Edit Building';
+				$scope.campusSelectedModal = $scope.campusSelected;
 				$scope.buildingSelectedModal = $scope.buildingSelected;
 				$scope.floorSelectedModal = '';
 				$scope.btnType = 'Save Changes';
 				break;
 			case 4:
 				$scope.header = 'Create Floor';
-				$scope.floorSelectedModal = $scope.floorSelected;
+				$scope.campusSelectedModal = $scope.campusSelected;
+				$scope.buildingSelectedModal = $scope.buildingSelected;
 				$scope.floorSelectedModal = '';
 				$scope.btnType = 'Create';
 				break;
 			case 5:
 				$scope.header = 'Edit Floor';
+				$scope.campusSelectedModal = $scope.campusSelected;
+				$scope.buildingSelectedModal = $scope.buildingSelected;
 				$scope.floorSelectedModal = $scope.floorSelected;
 				$scope.btnType = 'Save Changes';
 				break;

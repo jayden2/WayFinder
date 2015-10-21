@@ -1,12 +1,13 @@
 # WayFinder
 ###Campus Portal Page
 <ul>
-	<li>edit button brings up modal</li>
 	<li>campus selection, tab changes active</li>
 	<li>campus selection, changes show state</li>
 	<li>after selections confirm, gets correct URL string</li>
-	<li>create button brings up modal</li>
 	<li>change edit border color</li>
+	<li>modals display correct information</li>
+	<li>modals create entity</li>
+	<li>modals edit entity</li>
 	<li>confirm button colour change / enable/disable</li>
 </ul>
 ###Editor Page

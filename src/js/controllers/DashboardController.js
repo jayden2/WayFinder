@@ -29,9 +29,6 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 			$scope.campusPrevSelected = "1";
 			$scope.floorPrevSelected = "1";
 		}
-		console.log('campus: ' + $scope.campusIs);
-		console.log('building: ' + $scope.buildingIs);
-		console.log('floor: ' + $scope.floorIs);
 	}
 	$scope.buildingSelect = function(building) {
 		$scope.buildingSelected = building.name;
@@ -46,9 +43,6 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 			$scope.buildingPrevSelected = "3";
 			$scope.floorPrevSelected = "3";
 		}
-		console.log('campus: ' + $scope.campusIs);
-		console.log('building: ' + $scope.buildingIs);
-		console.log('floor: ' + $scope.floorIs);
 	}
 	$scope.floorSelect = function(floor) {
 		$scope.floorSelected = floor.name;
@@ -60,9 +54,6 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 			$scope.floorIs = false;
 			$scope.floorPrevSelected = "4";
 		}
-		console.log('campus: ' + $scope.campusIs);
-		console.log('building: ' + $scope.buildingIs);
-		console.log('floor: ' + $scope.floorIs);
 	}
 	$scope.editorURL = function() {
 		//$scope.makeURL = '/' + $scope.campusSelected + '/'+ $scope.buildingSelected + '/' + $scope.floorSelected + '/';

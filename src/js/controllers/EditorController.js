@@ -1,7 +1,7 @@
 app.controller('EditorController',['$scope', 'mapService', function($scope, mapService) {
 	mapService.success(function(data) {
 		$scope.maps = data;
-
+		var prevId, prevRoomName;
 		$scope.filters = { };
 		$scope.predicate = 'id';
 		$scope.reverse = false;
@@ -43,6 +43,61 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 				count += !map.link ? 1 : 0;
 			});
 			return count;
+		}
+		$scope.roomNameHolder = function(id, name) {
+			prevId = id;
+			prevRoomName = name;
+		}
+		$scope.checkEnterKey = function($event, name, id) {
+			var keyCode = $event.which || $event.keyCode;
+			if (keyCode === 13 && prevRoomName != name) {
+				$scope.log(2, name, id);
+				$scope.doBlur($event);
+			} else if (keyCode === 13) {
+				$scope.doBlur($event);
+			}
+		}
+		$scope.doBlur = function($event){
+			var target = $event.target;
+			target.blur();
+		}
+		$scope.log = function(type, name, state) {
+			var logText, newEntry;
+			switch(type) {
+				case 0:
+					if (state) {
+						logText = "is now a favourite";
+						newEntry = $('<li>' + 'Room: ' + name + ' ' + logText + '</li>');
+						updateLog(newEntry);
+					} else {
+						logText = "has been unfavourited";
+						newEntry = $('<li>' + 'Room: ' + name + ' ' + logText + '</li>');
+						updateLog(newEntry);
+					}
+				break;
+			case 1:
+				if (state) {
+						logText = "is now linked";
+						newEntry = $('<li>' + 'Room: ' + name + ' ' + logText + '</li>');
+						updateLog(newEntry);
+					} else {
+						logText = "is now unlinked";
+						newEntry = $('<li>' + 'Room: ' + name + ' ' + logText + '</li>');
+						updateLog(newEntry);
+					}
+				break;
+			case 2:
+				if (prevRoomName != name) {
+					logText = "has changed to";
+					newEntry = $('<li>' + 'Room: ' + prevRoomName + ' ' + logText + ' ' + name + '</li>');
+					updateLog(newEntry);
+				}
+				break;
+			}
+		}
+		function updateLog(newEntry) {
+			$(".log ul").prepend(newEntry);
+			$(".log li:nth-last-child(1)").remove();
 		}
 	});
 }]);

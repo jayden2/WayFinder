@@ -10,12 +10,13 @@ $(document).ready(function() {
 	{
 		$('.campusSel li.active').removeClass('active');
 		$(this).addClass('active');
-	});
-	$(document).on('click', '.campusSel li.active', function() 
+	});	
+	$(document).on('click', '.campusSel li.active', function(e) 
 	{
 		$('.campusSel li.active').removeClass('active');
 		$('.buildingSel li.active').removeClass('active');
 		$('.floorSel li.active').removeClass('active');
+		e.target.blur();
 	});
 	//building select
 	$(document).on('click', '.buildingSel li', function() 
@@ -23,8 +24,9 @@ $(document).ready(function() {
 		$('.buildingSel li.active').removeClass('active');
 		$(this).addClass('active');
 	});
-	$(document).on('click', '.buildingSel li.active', function() 
+	$(document).on('click', '.buildingSel li.active', function(e) 
 	{
+		e.target.blur();
 		$('.buildingSel li.active').removeClass('active');
 		$('.floorSel li.active').removeClass('active');
 	});
@@ -34,8 +36,9 @@ $(document).ready(function() {
 		$('.floorSel li.active').removeClass('active');
 		$(this).addClass('active');
 	});
-	$(document).on('click', '.floorSel li.active', function() 
+	$(document).on('click', '.floorSel li.active', function(e) 
 	{
+		e.target.blur();
 		$('.floorSel li.active').removeClass('active');
 	});
 });

@@ -26,23 +26,4 @@ $(document).ready(function() {
 		$(".tableNav li.active").removeClass("active");
 		$(this).addClass("active");
 	});
-	//The Log: Choose State
-	function logState(logType)
-	{
-		var logText;
-		if (logType == "newLayer") {
-			logText = "New Layer Created";
-			updateLog(logText);
-		}
-		if (logType == "layerNameChanged" && logFrom != logTo) {
-			logText = logFrom + " layer name has changed to " + logTo;
-			updateLog(logText);
-		}
-	}
-	//The Log: Show Log
-	function updateLog(logText) {
-		var newEntry = $('<li>' + logText + '</li>');
-		$(".log ul").prepend(newEntry);
-		$(".log li:nth-last-child(1)").remove();
-	}
 });

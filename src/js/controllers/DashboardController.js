@@ -35,13 +35,13 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 		$scope.editorURL();
 		$scope.buildingIs = true;
 		$scope.floorIs = false;
+		$scope.floorPrevSelected = "3";
 		if ($scope.buildingPrevSelected != $scope.buildingSelected) {
 			$scope.buildingPrevSelected = building.name;
 		} else {
 			$scope.buildingIs = false;
 			$scope.floorIs = false;
 			$scope.buildingPrevSelected = "3";
-			$scope.floorPrevSelected = "3";
 		}
 	}
 	$scope.floorSelect = function(floor) {

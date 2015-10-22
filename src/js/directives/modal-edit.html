@@ -9,13 +9,13 @@
 				<p><span ng-show="campus.length">Campus: {{ campus }}</span><span ng-show="building.length"> <b>></b> Building: {{ building }}<span ng-show="floor.length"> <b>></b> Floor: {{ floor }}</span></p>
 				<p class="">{{ body }}</p>
 				<p>{{ header }} Name:</p>
-				<input ng-if="header == 'Edit Campus'" type="text" value="{{ campus }}" />
-				<input ng-if="header == 'Edit Building'" type="text" value="{{ building }}" />
-				<input ng-if="header == 'Edit Floor'" type="text" value="{{ floor }}" />
+				<input ng-if="header == 'Edit Campus'" type="text" ng-model="campus" />
+				<input ng-if="header == 'Edit Building'" type="text" ng-model="building" />
+				<input ng-if="header == 'Edit Floor'" type="text" ng-model="floor" />
 				<input ng-if="!header.indexOf('C')" type="text" />
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary" data-ng-click="callbackbuttonright(); $event.stopPropagation()">{{ btnType }}</button>
+				<button type="button" class="btn btn-primary" data-ng-click="callbackbuttonright(1); $event.stopPropagation(1)">{{ btnType }}</button>
 			</div>
 		</div>
 	</div>

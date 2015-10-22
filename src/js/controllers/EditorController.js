@@ -6,8 +6,9 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 		$scope.predicate = 'id';
 		$scope.reverse = false;
 		$scope.entitiesState = true;
+		$scope.roomSelected = '';
 		$("[data-toggle=tooltip]").tooltip();
-
+		
 		$scope.order = function(predicate) {
 			$scope.filters = { };
 			if (predicate === 'num0') {
@@ -61,6 +62,11 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 			var target = $event.target;
 			target.blur();
 		}
+		$scope.selection = function(name) {
+			$scope.entitiesState = false;
+			$scope.roomSelected = name;
+			
+		}
 		$scope.log = function(type, name, state) {
 			var logText, newEntry;
 			switch(type) {
@@ -70,7 +76,7 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 						newEntry = $('<li>' + 'Room: ' + name + ' ' + logText + '</li>');
 						updateLog(newEntry);
 					} else {
-						logText = "has been unfavourited";
+						logText = "is no longer a favourite";
 						newEntry = $('<li>' + 'Room: ' + name + ' ' + logText + '</li>');
 						updateLog(newEntry);
 					}
@@ -89,7 +95,11 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 			case 2:
 				if (prevRoomName != name) {
 					logText = "has changed to";
-					newEntry = $('<li>' + 'Room: ' + prevRoomName + ' ' + logText + ' ' + name + '</li>');
+					if (name == "") {
+						newEntry = $('<li>' + 'Room: ' + prevRoomName + ' ' + logText + ' ' + "an empty string" + '</li>');
+					} else {
+						newEntry = $('<li>' + 'Room: ' + prevRoomName + ' ' + logText + ' ' + name + '</li>');
+					}
 					updateLog(newEntry);
 				}
 				break;

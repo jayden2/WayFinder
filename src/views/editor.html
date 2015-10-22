@@ -59,19 +59,20 @@
 					<tbody>
 						<tr><td colspan="6" ng-hide="filtered.length">No results found!</td></tr>
 						<tr ng-repeat="map in filtered = (maps | filter:filters) | orderBy:predicate:reverse"
-							ng-class="{true: 'default', false: 'danger'}[map.name.length]"><!--doesnt work yet-->
+							ng-class="{true: 'danger', false: 'default'}[!map.name.length]"><!--doesnt work yet-->
 							<td>{{ map.id }}</td>
 							<td><input type="text" ng-model="map.name" ng-focus="roomNameHolder(map.id, map.name)" ng-blur="log(2, map.name, map.id)"
-							ng-keypress="checkEnterKey($event, 2, map.name, map.id)"/></td>
+							ng-keypress="checkEnterKey($event, map.name, map.id); checkEmpty($event, $index)"/></td>
 							<td>0</td>
 							<td>0</td>
 							<td>
 								<span class="fa fa-lg" data-id="{{ map.link }}" ng-class="{true: 'fa-times-circle', false: 'fa-check-circle'}[!map.link]"></span>
 							</td>
 							<td>
-								<a class="star fa fa-star fa-lg" data-id="{{ map.favourite }}" ng-class="{true: 'fa-star-o', false: 'fa-star'}[!map.favourite]" ng-click="map.favourite = !map.favourite; log(0, map.name, map.favourite)"></a>
+								<a class="star fa fa-star fa-lg" data-id="{{ map.favourite }}" ng-class="{true: 'fa-star-o', false: 'fa-star'}[!map.favourite]"
+								ng-click="map.favourite = !map.favourite; log(0, map.name, map.favourite)"></a>
 							</td>
-							<td><a href="">select ></a></td>
+							<td><a href="" class="selection" ng-click="selection(map.name)">select ></a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -79,7 +80,7 @@
 				<table class="table table-striped" ng-show="!entitiesState">
 					<thead>
 						<tr>
-							<th>Room Information</th>
+							<th ng-model="roomSelected">Room {{ roomSelected }} Information</th>
 							<th>Node Information</th>
 						</tr>
 					</thead>
@@ -114,5 +115,5 @@
 			</aside>				
 		</section>
 	</div>
+	<footer class="footerEditor"></footer>
 </div>
-<footer class="footerEditor"></footer>

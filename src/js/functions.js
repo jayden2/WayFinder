@@ -26,4 +26,10 @@ $(document).ready(function() {
 		$(".tableNav li.active").removeClass("active");
 		$(this).addClass("active");
 	});
+	//select switch entities to selection
+	$(document).on('click', '.selection', function(e)
+	{
+		$(".tableNav li.active").removeClass("active");
+		$(".tableNav li:nth-child(2)").addClass("active");
+	});
 });

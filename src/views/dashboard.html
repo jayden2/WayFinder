@@ -1,48 +1,59 @@
 <div class="container" ng-controller="DashboardController">
 	<modal modal-name="modal1" modal-header="header" modal-campus="campusSelectedModal" modal-building="buildingSelectedModal" modal-floor="floorSelectedModal" modal-btn="btnType" data-ng-click-right-button="myRightButton()"></modal>
 	<ul class="dashNav nav nav-tabs nav-justified">
-		<li role="presentation" class="active"><a href="">Campus Selection</a></li>
-		<li role="presentation"><a href="">Filler</a></li>
-		<li role="presentation"><a href="">Settings</a></li>
-		<li role="presentation"><a href="">Help</a></li>
+		<li role="presentation" class="active" ng-click="dashboardState(0)"><a href="">Campus Selection</a></li>
+		<li role="presentation" ng-click="dashboardState(1)"><a href="">Filler</a></li>
+		<li role="presentation" ng-click="dashboardState(2)"><a href="">Settings</a></li>
+		<li role="presentation" ng-click="dashboardState(3)"><a href="">Help</a></li>
 	</ul>
-	<div class="headerSel row">
-		<h3 class="col-xs-4">Select Campus</h3>
-		<h3 class="col-xs-4">Select Building</h3>
-		<h3 class="col-xs-4">Select Floor</h3>
-	</div>
-	<section class="campusSel col-xs-4">
-		<ul class="nav nav-pills nav-stacked">
-			<li role="presentation" ng-repeat="campus in campuses | orderBy: 'name'" ng-click="campusSelect(campus); checkUnclick()"><a href="">{{ campus.name }}</a></li>
-			<button ng-click="changeCampus(0)" href="#modal1" type="button" class="btn btn-default" data-toggle="modal" ng-show="!campusIs">Create Campus+</button>
-			<button ng-click="changeCampus(1)" href="#modal1" type="button" class="editBtn btn btn-default" data-toggle="modal" ng-show="campusIs">Edit Campus</button>
-			
-		</ul>
-	</section>
-	<section class="buildingSel col-xs-4">
-		<ul class="nav nav-pills nav-stacked" ng-repeat="campus in campuses | filter:{ name: campusSelected }:true" ng-show="campusIs">
-			<li role="presentation" ng-repeat="building in campus.building | orderBy: 'name'" ng-click="buildingSelect(building)"><a href="">{{ building.name }}</a></li>
-			<button ng-click="changeCampus(2)" href="#modal1" type="button" class="btn btn-default" data-toggle="modal" ng-show="!buildingIs">Create Building+</button>
-			<button ng-click="changeCampus(3)" href="#modal1" type="button" class="editBtn btn btn-default" data-toggle="modal" ng-show="buildingIs">Edit Building</button>
-		</ul>
-		<div class="noSel" ng-show="!campusIs">
-			<p>No campus is selected.</p>
+	<div ng-show="campusSelectionState">
+		<div class="headerSel row">
+			<h3 class="col-xs-4">Select Campus</h3>
+			<h3 class="col-xs-4">Select Building</h3>
+			<h3 class="col-xs-4">Select Floor</h3>
 		</div>
-	</section>
-	<section class="floorSel col-xs-4">
-		<div ng-repeat="campus in campuses | filter:{ name: campusSelected }:true">
-			<ul class="nav nav-pills nav-stacked" ng-repeat="building in campus.building | filter:{ name: buildingSelected }:true" ng-show="buildingIs">
-				<li role="presentation" ng-repeat="floor in building.floor | orderBy: 'name'" ng-click="floorSelect(floor)"><a href="">{{ floor.name }}</a></li>
-				<button ng-click="changeCampus(4)" href="#modal1" type="button" class="btn btn-default" data-toggle="modal" ng-show="!floorIs">Create Floor+</button>
-				<button ng-click="changeCampus(5)" href="#modal1" type="button" class="editBtn btn btn-default" data-toggle="modal" ng-show="floorIs">Edit Floor</button>
+		<section class="campusSel col-xs-4">
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation" ng-repeat="campus in campuses | orderBy: 'name'" ng-click="campusSelect(campus); checkUnclick()"><a href="">{{ campus.name }}</a></li>
+				<button ng-click="changeCampus(0)" href="#modal1" type="button" class="btn btn-default" data-toggle="modal" ng-show="!campusIs">Create Campus+</button>
+				<button ng-click="changeCampus(1)" href="#modal1" type="button" class="editBtn btn btn-default" data-toggle="modal" ng-show="campusIs">Edit Campus</button>
+				
 			</ul>
-		</div>
-		<div class="noSel" ng-show="!buildingIs">
-			<p>No building is selected.</p>
-		</div>
-	</section>
-	<section class="confirmBtn row col-xs-12">
-		<a class="btn btn-default btn-lg" ng-href="#/editor/{{ editorURL }}">Confirm Selection</a>
-	</section>
+		</section>
+		<section class="buildingSel col-xs-4">
+			<ul class="nav nav-pills nav-stacked" ng-repeat="campus in campuses | filter:{ name: campusSelected }:true" ng-show="campusIs">
+				<li role="presentation" ng-repeat="building in campus.building | orderBy: 'name'" ng-click="buildingSelect(building)"><a href="">{{ building.name }}</a></li>
+				<button ng-click="changeCampus(2)" href="#modal1" type="button" class="btn btn-default" data-toggle="modal" ng-show="!buildingIs">Create Building+</button>
+				<button ng-click="changeCampus(3)" href="#modal1" type="button" class="editBtn btn btn-default" data-toggle="modal" ng-show="buildingIs">Edit Building</button>
+			</ul>
+			<div class="noSel" ng-show="!campusIs">
+				<p>No campus is selected.</p>
+			</div>
+		</section>
+		<section class="floorSel col-xs-4">
+			<div ng-repeat="campus in campuses | filter:{ name: campusSelected }:true">
+				<ul class="nav nav-pills nav-stacked" ng-repeat="building in campus.building | filter:{ name: buildingSelected }:true" ng-show="buildingIs">
+					<li role="presentation" ng-repeat="floor in building.floor | orderBy: 'name'" ng-click="floorSelect(floor)"><a href="">{{ floor.name }}</a></li>
+					<button ng-click="changeCampus(4)" href="#modal1" type="button" class="btn btn-default" data-toggle="modal" ng-show="!floorIs">Create Floor+</button>
+					<button ng-click="changeCampus(5)" href="#modal1" type="button" class="editBtn btn btn-default" data-toggle="modal" ng-show="floorIs">Edit Floor</button>
+				</ul>
+			</div>
+			<div class="noSel" ng-show="!buildingIs">
+				<p>No building is selected.</p>
+			</div>
+		</section>
+		<section class="confirmBtn row col-xs-12">
+			<a class="btn btn-default btn-lg" ng-click="breadcrumbChange()" ng-href="#/editor/{{ editorURL }}">Confirm Selection</a>
+		</section>
+	</div>
+	<div ng-show="fillerState">
+		<h2>filler page</h2>
+	</div>
+	<div ng-show="settingsState">
+		<h2>settings page</h2>
+	</div>
+	<div ng-show="helpState">
+		<h2>help page</h2>
+	</div>
+	<footer class="footerDashboard"></footer>
 </div>
-<footer class="footerDashboard"></footer>

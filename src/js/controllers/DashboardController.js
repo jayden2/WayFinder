@@ -3,6 +3,10 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 	dashboardService.success(function(data) {
 		$scope.campuses = data;
 	});
+	$scope.campusSelectionState = true;
+	$scope.fillerState = false;
+	$scope.settingsState = false;
+	$scope.helpState = false;
 	$scope.campusSelectedModal = '';
 	$scope.buildingSelectedModal = '';
 	$scope.floorSelectedModal = '';
@@ -12,7 +16,36 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
     $scope.header = 'Edit Campus';
     $scope.body = 'Selected Campus';
     $scope.btnType = 'Save Changes';
+    $(".breadcrumb li:not(:first-child)").remove();
 
+    $scope.dashboardState = function(change) {
+			switch(change) {
+				case 0:
+					$scope.campusSelectionState = true;
+					$scope.fillerState = false;
+					$scope.settingsState = false;
+					$scope.helpState = false;
+					break;
+				case 1:
+					$scope.campusSelectionState = false;
+					$scope.fillerState = true;
+					$scope.settingsState = false;
+					$scope.helpState = false;
+					break;
+				case 2:
+					$scope.campusSelectionState = false;
+					$scope.fillerState = false;
+					$scope.settingsState = true;
+					$scope.helpState = false;
+					break;
+				case 3:
+					$scope.campusSelectionState = false;
+					$scope.fillerState = false;
+					$scope.settingsState = false;
+					$scope.helpState = true;
+					break;
+			}
+		}
 	$scope.campusSelect = function(campus) {
 		$scope.campusSelected = campus.name;
 		$scope.editorURL();
@@ -61,9 +94,16 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 		//$scope.makeURL.replace(/\s/g, '');
 		//console.log($scope.makeURL);
 	}
-	/*$scope.myRightButton = function (bool) {
-		alert('');
-	};*/
+	$scope.myRightButton = function (num) {
+		alert(num);
+	};
+	$scope.breadcrumbChange = function() {
+		console.log(1);
+		$(".breadcrumb li:not(:first-child)").remove();
+		$(".breadcrumb").append('<li class="active">' + $scope.campusSelected + "</li>");
+		$(".breadcrumb").append('<li class="active">' + $scope.buildingSelected + "</li>");
+		$(".breadcrumb").append('<li class="active">' + $scope.floorSelected + "</li>");
+	}
 	$scope.changeCampus = function(type) {
 		switch(type) {
 			case 0:

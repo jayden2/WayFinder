@@ -16,6 +16,7 @@ app.directive('modal', function () {
 		templateUrl: 'js/directives/modal-edit.html',
 		transclude: true,
 		link: function ($scope) {
+			
 		},
 	};
 });

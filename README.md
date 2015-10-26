@@ -14,6 +14,8 @@
 </ul>
 ###Editor Page
 <ul>
+	<li>put tools and layers into directives</li>
+	<li>look into padding issue with canvas</li>
 	<li>log undo</li>
 	<li>fix tool tab width problem</li>
 	<li>log uses ID instead of name if string name is empty</li>

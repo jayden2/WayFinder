@@ -1,5 +1,5 @@
 app.controller('DashboardController',['$scope', 'dashboardService', function($scope, dashboardService) {
-	var makeURL, campusPrevSelected, buildingPrevSelected, floorPrevSelected, campusSelected, buildingSelected, floorSelected;
+	var campusPrevSelected, buildingPrevSelected, floorPrevSelected, campusSelected, buildingSelected, floorSelected;
 	dashboardService.success(function(data) {
 		$scope.campuses = data;
 	});
@@ -7,6 +7,9 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 	$scope.fillerState = false;
 	$scope.settingsState = false;
 	$scope.helpState = false;
+	$scope.campusSelected = '';
+	$scope.buildingSelected = '';
+	$scope.floorSelected = '';
 	$scope.campusSelectedModal = '';
 	$scope.buildingSelectedModal = '';
 	$scope.floorSelectedModal = '';
@@ -48,7 +51,6 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 		}
 	$scope.campusSelect = function(campus) {
 		$scope.campusSelected = campus.name;
-		$scope.editorURL();
 		$scope.campusIs = true;
 		$scope.buildingIs = false;
 		$scope.floorIs = false;
@@ -59,13 +61,16 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 			$scope.campusIs = false;
 			$scope.buildingIs = false;
 			$scope.floorIs = false;
+			$scope.campusSelected = '';
+			$scope.buildingSelected = '';
+			$scope.floorSelected = '';
 			$scope.campusPrevSelected = "1";
 			$scope.floorPrevSelected = "1";
 		}
+		$scope.editorURL();
 	}
 	$scope.buildingSelect = function(building) {
 		$scope.buildingSelected = building.name;
-		$scope.editorURL();
 		$scope.buildingIs = true;
 		$scope.floorIs = false;
 		$scope.floorPrevSelected = "3";
@@ -74,31 +79,34 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 		} else {
 			$scope.buildingIs = false;
 			$scope.floorIs = false;
+			$scope.buildingSelected = '';
+			$scope.floorSelected = '';
 			$scope.buildingPrevSelected = "3";
 		}
+		$scope.editorURL();
 	}
 	$scope.floorSelect = function(floor) {
 		$scope.floorSelected = floor.name;
-		$scope.editorURL();
 		$scope.floorIs = true;
 		if ($scope.floorPrevSelected != $scope.floorSelected) {
 			$scope.floorPrevSelected = floor.name;
 		} else {
 			$scope.floorIs = false;
+			$scope.floorSelected = '';
 			$scope.floorPrevSelected = "4";
 		}
+		$scope.editorURL();
 	}
 	$scope.editorURL = function() {
-		//$scope.makeURL = '/' + $scope.campusSelected + '/'+ $scope.buildingSelected + '/' + $scope.floorSelected + '/';
-		//angular.lowercase($scope.makeURL);
-		//$scope.makeURL.replace(/\s/g, '');
-		//console.log($scope.makeURL);
+		var makeURL = $scope.campusSelected + '/'+ $scope.buildingSelected + '/' + $scope.floorSelected + '/';
+		makeURL = makeURL.toLowerCase();
+		makeURL = makeURL.replace(/\s+/g, '');
+		$scope.id = makeURL;
 	}
 	$scope.myRightButton = function (num) {
 		alert(num);
 	};
 	$scope.breadcrumbChange = function() {
-		console.log(1);
 		$(".breadcrumb li:not(:first-child)").remove();
 		$(".breadcrumb").append('<li class="active">' + $scope.campusSelected + "</li>");
 		$(".breadcrumb").append('<li class="active">' + $scope.buildingSelected + "</li>");

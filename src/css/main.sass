@@ -1,13 +1,20 @@
 $orange-base: #dd4814
 $orange-hover: #d74816
+html
+	position: relative
+	min-height: 100%
 body
 	min-width: 705px
+	margin-bottom: 10px
 ::selection
 	color: white
 	background: rgba(221, 72, 20, 0.7)
 ::-moz-selection
 	color: white
 	background: rgba(221, 72, 20, 0.7)
+.container
+	position: relative
+	min-height: 100%
 .topBar
 	height: 12px
 	background-color: $orange-base
@@ -39,15 +46,14 @@ input[type=text]:focus
 .nav-pills > .active > a > .badge
 	color: $orange-base
 footer
+	position: absolute
 	bottom: 0
+	left: 0
 	width: 100%
 	height: 18px
 	background-color: #434343
-.footerEditor
-	/*position: absolute*/
-.footerDashboard
-	position: fixed
-	left: 0
-
+footer:after
+	content: ""
+	clear: both
 @import _dashboard
 @import _editor

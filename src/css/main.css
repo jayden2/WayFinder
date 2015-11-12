@@ -1,5 +1,10 @@
+html {
+  position: relative;
+  min-height: 100%; }
+
 body {
-  min-width: 705px; }
+  min-width: 705px;
+  margin-bottom: 10px; }
 
 ::selection {
   color: white;
@@ -8,6 +13,10 @@ body {
 ::-moz-selection {
   color: white;
   background: rgba(221, 72, 20, 0.7); }
+
+.container {
+  position: relative;
+  min-height: 100%; }
 
 .topBar {
   height: 12px;
@@ -50,17 +59,16 @@ input[type=text]:focus {
   color: #dd4814; }
 
 footer {
+  position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 18px;
   background-color: #434343; }
 
-.footerEditor {
-  /*position: absolute */ }
-
-.footerDashboard {
-  position: fixed;
-  left: 0; }
+footer:after {
+  content: "";
+  clear: both; }
 
 .headerSel > h3 {
   text-align: center; }
@@ -116,7 +124,8 @@ canvas {
 .layers {
   padding-left: 0; }
   .layers .nav-pills {
-    width: 65%; }
+    width: 65%;
+    min-width: 100px; }
     .layers .nav-pills li > a {
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px; }
@@ -126,6 +135,7 @@ canvas {
   text-align: right; }
   .tools .nav-pills {
     width: 20%;
+    min-width: 50px;
     float: right; }
     .tools .nav-pills li > a {
       border-top-right-radius: 0px;

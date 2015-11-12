@@ -55,6 +55,7 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 		$scope.buildingIs = false;
 		$scope.floorIs = false;
 		$scope.buildingPrevSelected = "1";
+		confirmReady(false);
 		if ($scope.campusPrevSelected != $scope.campusSelected) {
 			$scope.campusPrevSelected = campus.name;
 		} else {
@@ -74,6 +75,7 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 		$scope.buildingIs = true;
 		$scope.floorIs = false;
 		$scope.floorPrevSelected = "3";
+		confirmReady(false);
 		if ($scope.buildingPrevSelected != $scope.buildingSelected) {
 			$scope.buildingPrevSelected = building.name;
 		} else {
@@ -88,9 +90,11 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 	$scope.floorSelect = function(floor) {
 		$scope.floorSelected = floor.name;
 		$scope.floorIs = true;
+		confirmReady(true);
 		if ($scope.floorPrevSelected != $scope.floorSelected) {
 			$scope.floorPrevSelected = floor.name;
 		} else {
+			confirmReady(false);
 			$scope.floorIs = false;
 			$scope.floorSelected = '';
 			$scope.floorPrevSelected = "4";
@@ -102,6 +106,13 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 		makeURL = makeURL.toLowerCase();
 		makeURL = makeURL.replace(/\s+/g, '');
 		$scope.id = makeURL;
+	}
+	confirmReady = function(check) {
+		if (check) {
+			$(".confirmBtn a").removeClass('disabled');
+		} else {
+			$(".confirmBtn a").addClass('disabled');
+		}
 	}
 	$scope.myRightButton = function (num) {
 		alert(num);

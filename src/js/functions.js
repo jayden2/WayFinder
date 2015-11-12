@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	var logType, logFrom, logTo;
+	//breadcumbs
+	$('.breadcrumb li').removeClass('active');
 	//tools switch selection
 	$(document).on('click', '.tools li', function(e)
 	{

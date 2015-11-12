@@ -161,6 +161,13 @@ canvas {
 
 .log {
   padding-left: 35px; }
+  .log li:nth-child(even) {
+    background-color: #F9F9F9; }
+  .log li {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    width: 100%;
+    list-style-type: square; }
 
 .fa-check-circle {
   color: #66CC33;

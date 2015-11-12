@@ -49,10 +49,9 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 			prevId = id;
 			prevRoomName = name;
 		}
-		$scope.checkEnterKey = function($event, name, id) {
+		$scope.checkEnterKey = function($event) {
 			var keyCode = $event.which || $event.keyCode;
 			if (keyCode === 13 && prevRoomName != name) {
-				$scope.log(2, name, id);
 				$scope.doBlur($event);
 			} else if (keyCode === 13) {
 				$scope.doBlur($event);
@@ -65,40 +64,45 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 		$scope.selection = function(name) {
 			$scope.entitiesState = false;
 			$scope.roomSelected = name;
-			
 		}
-		$scope.log = function(type, name, state) {
+		$scope.log = function(type, id, name, state) {
 			var logText, newEntry;
 			switch(type) {
 				case 0:
 					if (state) {
-						logText = "is now a favourite";
-						newEntry = $('<li>' + 'Room: ' + name + ' ' + logText + '</li>');
-						updateLog(newEntry);
+						logText = "is now a favourite";						
 					} else {
 						logText = "is no longer a favourite";
-						newEntry = $('<li>' + 'Room: ' + name + ' ' + logText + '</li>');
-						updateLog(newEntry);
 					}
+					if (name == "") {
+						newEntry = $('<li>' + 'Room ID: ' + id + ' ' + logText + '</li>');
+					} else {
+						newEntry = $('<li>' + 'Room name: ' + name + ' ' + logText + '</li>');
+					}
+					updateLog(newEntry);
 				break;
 			case 1:
 				if (state) {
 						logText = "is now linked";
-						newEntry = $('<li>' + 'Room: ' + name + ' ' + logText + '</li>');
-						updateLog(newEntry);
 					} else {
 						logText = "is now unlinked";
-						newEntry = $('<li>' + 'Room: ' + name + ' ' + logText + '</li>');
-						updateLog(newEntry);
 					}
+					if (name == "") {
+						newEntry = $('<li>' + 'Room ID: ' + id + ' ' + logText + '</li>');
+					} else {
+						newEntry = $('<li>' + 'Room name: ' + name + ' ' + logText + '</li>');
+					}
+					updateLog(newEntry);
 				break;
 			case 2:
 				if (prevRoomName != name) {
 					logText = "has changed to";
 					if (name == "") {
-						newEntry = $('<li>' + 'Room: ' + prevRoomName + ' ' + logText + ' ' + "an empty string" + '</li>');
+						newEntry = $('<li>' + 'Room ID: ' + id + ' ' + logText + ' ' + "an empty string" + '</li>');
+					} else if (prevRoomName == ''){
+						newEntry = $('<li>' + 'Room ID: ' + id + ' ' + logText + ' Room name: ' + name + '</li>');
 					} else {
-						newEntry = $('<li>' + 'Room: ' + prevRoomName + ' ' + logText + ' ' + name + '</li>');
+						newEntry = $('<li>' + 'Room ID: ' + id + ' changed from Room name: ' + prevRoomName + ' ' + ' to ' + name + '</li>');
 					}
 					updateLog(newEntry);
 				}
@@ -106,8 +110,9 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 			}
 		}
 		function updateLog(newEntry) {
+			$("#filler").remove();
 			$(".log ul").prepend(newEntry);
-			$(".log li:nth-last-child(1)").remove();
+			$(".log li:nth-child(5)").remove();
 		}
 	});
 }]);

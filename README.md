@@ -8,17 +8,14 @@
 	<li>styling</li>
 	<li>hover animations</li>
 	<li>general transitions</li>
-	<li>unfocus way finder dashboard breadcrumb button</li>
-	<li>deselect campus,building, floor active changes Selected variable to empty string and effects confirm selection</li>
 </ul>
 ###Editor Page
 <ul>
 	<li>put tools and layers into directives</li>
 	<li>look into padding issue with canvas</li>
 	<li>log undo</li>
-	<li>log uses ID instead of name if string name is empty</li>
 	<li>styling</li>
-	<li>log entry default entry state</li>
 	<li>hover animations</li>
 	<li>general transitions</li>
+	<li>favourite to category (dropdown menu)</li>
 </ul>

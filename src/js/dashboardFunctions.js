@@ -1,4 +1,10 @@
 $(document).ready(function() {
+	//breadcumbs
+	$(document).on('click', '.breadcrumb a', function(e)
+	{
+		$('.breadcrumb li').addClass('active');
+		e.target.blur();
+	});
 	//dashboard tabs
 	$(document).on('click', '.dashNav li', function() 
 	{

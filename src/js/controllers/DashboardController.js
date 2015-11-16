@@ -114,8 +114,8 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 			$(".confirmBtn a").addClass('disabled');
 		}
 	}
-	$scope.myRightButton = function (num) {
-		alert(num);
+	$scope.callbackdata = function(title) {
+		alert(title);
 	};
 	$scope.breadcrumbChange = function() {
 		$(".breadcrumb li:not(:first-child)").remove();

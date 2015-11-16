@@ -9,14 +9,16 @@ app.directive('modal', function () {
 			building: '=modalBuilding',
 			floor: '=modalFloor',
 			btnType: '=modalBtn',
-			callbackbuttonleft: '&ngClickLeftButton',
-			callbackbuttonright: '&ngClickRightButton',
 			modalName: '@'
 		},
 		templateUrl: 'js/directives/modal-edit.html',
 		transclude: true,
 		link: function ($scope) {
-			
+			$scope.callbackbutton = function(title) {
+				alert(title);
+				$scope.floor = title;
+				alert($scope.floor);
+			}
 		},
 	};
 });

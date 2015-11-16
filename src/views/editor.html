@@ -31,6 +31,7 @@
 					<div class="search col-xs-4" ng-show="entitiesState">
 						<label><span class="fa fa-search"></span></label>
 						<input id="search-input" class="form-control" type="text" ng-model="filters.name" placeholder="Search Room Name"/>
+						<label ng-show="filters.name" ng-click="filters.name=''" class="searchClear"><span class="fa fa-times-circle searchClear"></span></label>
 					</div>
 					<div class="dropdown col-xs-2" ng-show="entitiesState">
 						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="filterText">Index (0-9)</span> <span class="caret"></span>

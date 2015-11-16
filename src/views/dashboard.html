@@ -8,12 +8,8 @@
 		<li role="presentation" ng-click="dashboardState(3)"><a href="">Help</a></li>
 	</ul>
 	<div ng-show="campusSelectionState">
-		<div class="headerSel row">
-			<h3 class="col-xs-4">Select Campus</h3>
-			<h3 class="col-xs-4">Select Building</h3>
-			<h3 class="col-xs-4">Select Floor</h3>
-		</div>
 		<section class="campusSel col-xs-4">
+			<h3 class="selHeader">Select Campus</h3>
 			<ul class="nav nav-pills nav-stacked">
 				<li role="presentation" ng-repeat="campus in campuses | orderBy: 'name'" ng-click="campusSelect(campus); checkUnclick()"><a href="">{{ campus.name }}</a></li>
 				<button ng-click="changeCampus(0)" href="#modal1" type="button" class="btn btn-default" data-toggle="modal" ng-show="!campusIs">Create Campus+</button>
@@ -22,6 +18,7 @@
 			</ul>
 		</section>
 		<section class="buildingSel col-xs-4">
+			<h3 class="selHeader">Select Building</h3>
 			<ul class="nav nav-pills nav-stacked" ng-repeat="campus in campuses | filter:{ name: campusSelected }:true" ng-show="campusIs">
 				<li role="presentation" ng-repeat="building in campus.building | orderBy: 'name'" ng-click="buildingSelect(building)"><a href="">{{ building.name }}</a></li>
 				<button ng-click="changeCampus(2)" href="#modal1" type="button" class="btn btn-default" data-toggle="modal" ng-show="!buildingIs">Create Building+</button>
@@ -32,6 +29,7 @@
 			</div>
 		</section>
 		<section class="floorSel col-xs-4">
+			<h3 class="selHeader">Select Floor</h3>
 			<div ng-repeat="campus in campuses | filter:{ name: campusSelected }:true">
 				<ul class="nav nav-pills nav-stacked" ng-repeat="building in campus.building | filter:{ name: buildingSelected }:true" ng-show="buildingIs">
 					<li role="presentation" ng-repeat="floor in building.floor | orderBy: 'name'" ng-click="floorSelect(floor)"><a href="">{{ floor.name }}</a></li>
@@ -44,7 +42,7 @@
 			</div>
 		</section>
 		<section class="confirmBtn row col-xs-12">
-			<a class="btn btn-default btn-lg disabled" ng-click="breadcrumbChange()" ng-href="#/editor/{{ id }}">Confirm Selection</a>
+			<a class="btn btn-default btn-lg disabled" ng-click="breadcrumbChange()" ng-href="#/editor/{{ id }}"><span class="fa fa-exclamation-triangle"></span> Confirm Selection</a>
 		</section>
 	</div>
 	<div ng-show="fillerState">

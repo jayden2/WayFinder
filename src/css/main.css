@@ -63,6 +63,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
+  min-width: 705px;
   height: 18px;
   background-color: #434343; }
 
@@ -70,8 +71,9 @@ footer:after {
   content: "";
   clear: both; }
 
-.headerSel > h3 {
-  text-align: center; }
+.selHeader {
+  padding-left: 0;
+  margin-left: -60px; }
 
 .campusSel,
 .buildingSel,
@@ -94,12 +96,16 @@ footer:after {
   .floorSel button {
     padding-top: 8px; }
 
-.noSel > p {
+.noSel {
+  margin-left: -60px;
   text-align: center; }
 
 .confirmBtn {
   padding-top: 10px;
   text-align: center; }
+
+.fa-exclamation-triangle {
+  color: #FFCC00; }
 
 canvas {
   background-color: #999999; }
@@ -109,8 +115,13 @@ canvas {
 
 .search label {
   position: absolute;
-  top: 7px;
+  top: 7px; }
+
+.search label:first-child {
   left: 25px; }
+
+.search label:last-child {
+  right: 30px; }
 
 #search-input {
   padding-left: 30px; }
@@ -191,4 +202,11 @@ canvas {
 .fa-star-o:hover {
   color: #F6AE0D;
   text-decoration: none;
+  cursor: pointer; }
+
+.searchClear {
+  color: #828080; }
+
+.searchClear:hover {
+  color: #FF3333;
   cursor: pointer; }

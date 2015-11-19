@@ -17,7 +17,6 @@ app.directive('modal', function () {
 			$scope.callbackbutton = function(title) {
 				alert(title);
 				$scope.floor = title;
-				alert($scope.floor);
 			}
 		},
 	};

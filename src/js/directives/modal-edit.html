@@ -1,4 +1,4 @@
-<div id="{{modalName}}" class="modal fade">
+<div ng-controller="DashboardController" id="{{modalName}}" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -9,16 +9,23 @@
 				<p><span ng-show="campus.length">Campus: {{ campus }}</span><span ng-show="building.length"> <b>></b> Building: {{ building }}<span ng-show="floor.length"> <b>></b> Floor: {{ floor }}</span></p>
 				<p class="">{{ body }}</p>
 				<p>{{ header }} Name:</p>
-				<input ng-if="header == 'Edit Campus'" type="text" ng-value="campus" ng-bind="campus()" />
-				<input ng-if="header == 'Edit Building'" type="text" ng-value="building" />
-				<input ng-if="header == 'Edit Floor'" type="text" ng-value="floor" />
-				<input ng-if="!header.indexOf('C')" type="text" ng-value="createName" ng-bind="createName()" placeholder="input text" />
+				<form>
+					<fieldset>
+					<!--<input ng-if="header == 'Edit Campus'" id="campusReturn" type="text" name="campus" ng-model="campus" />
+					<input ng-if="header == 'Edit Building'" id="buildingReturn" type="text" ng-model="building" />
+					<input ng-if="header == 'Edit Floor'" id="floorReturn" type="text" ng-model="floor" />
+					<input ng-if="!header.indexOf('C')" id="createReturn" type="text" ng-model="create" placeholder="input text" />-->
+						<label for="campusInput">Edit Campus Name:</label>
+						<input type="text" name="campusInput" ng-model="campusInput" placeholder="{{ campus }}"/>
+			        </fieldset>
+    			</form>
+				<h1>{{ campusInput }}</h1>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button ng-if="header == 'Edit Campus'" type="button" class="btn btn-primary" data-ng-click="callbackbutton(campus)">{{ btnType }}</button>
-				<button ng-if="header == 'Edit Building'" type="button" class="btn btn-primary" data-ng-click="callbackbutton(building)">{{ btnType }}</button>
-				<button ng-if="header == 'Edit Floor'" type="button" class="btn btn-primary" data-ng-click="callbackbutton(floor)">{{ btnType }}</button>
-				<button ng-if="!header.indexOf('C')" type="button" class="btn btn-primary" data-ng-click="callbackbutton(createName)">{{ btnType }}</button>
+				<button ng-if="header == 'Edit Campus'" type="button" class="btn btn-primary" data-dismiss="modal" data-ng-click="callBackData(campusInput)">{{ btnType }}</button>
+				<button ng-if="header == 'Edit Building'" type="button" class="btn btn-primary" data-dismiss="modal" data-ng-click="callbackbutton(building)">{{ btnType }}</button>
+				<button ng-if="header == 'Edit Floor'" type="button" class="btn btn-primary" data-dismiss="modal" data-ng-click="callbackbutton(floor)">{{ btnType }}</button>
+				<button ng-if="!header.indexOf('C')" type="button" class="btn btn-primary" data-dismiss="modal" data-ng-click="callbackbutton(create)">{{ btnType }}</button>
 			</div>
 		</div>
 	</div>

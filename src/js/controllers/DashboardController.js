@@ -114,7 +114,7 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 			$(".confirmBtn a").addClass('disabled');
 		}
 	}
-	$scope.callbackdata = function(title) {
+	$scope.callBackData = function(title) {
 		alert(title);
 	};
 	$scope.breadcrumbChange = function() {
@@ -135,6 +135,8 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 			case 1:
 				$scope.header = 'Edit Campus';
 				$scope.campusSelectedModal = $scope.campusSelected;
+				$scope.campusInput = $scope.campusSelected;
+				$scope.campusInput = 'fdsfsd';
 				$scope.buildingSelectedModal = '';
 				$scope.floorSelectedModal = '';
 				$scope.btnType = 'Save Changes';
@@ -150,6 +152,7 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 				$scope.header = 'Edit Building';
 				$scope.campusSelectedModal = $scope.campusSelected;
 				$scope.buildingSelectedModal = $scope.buildingSelected;
+				$scope.buildingInput = $scope.buildingSelected;
 				$scope.floorSelectedModal = '';
 				$scope.btnType = 'Save Changes';
 				break;
@@ -165,6 +168,7 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 				$scope.campusSelectedModal = $scope.campusSelected;
 				$scope.buildingSelectedModal = $scope.buildingSelected;
 				$scope.floorSelectedModal = $scope.floorSelected;
+				$scope.floorInput = $scope.floorSelected;
 				$scope.btnType = 'Save Changes';
 				break;
 		}

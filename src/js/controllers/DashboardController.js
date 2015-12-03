@@ -131,7 +131,6 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 				$scope.buildingSelectedModal = '';
 				$scope.floorSelectedModal = '';
 				$scope.btnType = 'Create';
-				console.log($scope.header);
 				break;
 			case 1:
 				$scope.header = 'Edit Campus';

@@ -3,11 +3,11 @@ app.config(function($routeProvider) {
 	$routeProvider
 	.when('/', {
 		controller: 'DashboardController',
-		templateUrl: 'views/dashboard.html'
+		templateUrl: 'templates/dashboard.html'
 	})
 	.when('/editor/:id1/:id2/:id3', {
 		controller: 'EditorController',
-		templateUrl: 'views/editor.html'
+		templateUrl: 'templates/editor.html'
 	})
 	.otherwise({
 		redirectTo: '/'

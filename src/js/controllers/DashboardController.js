@@ -16,8 +16,8 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 	$scope.campusIs = false;
 	$scope.buildingIs = false;
 	$scope.floorIs = false;
-    $scope.header = 'Edit Campus';
-    $scope.body = 'Selected Campus';
+    $scope.header = '???';
+    $scope.body = '???';
     $scope.btnType = 'Save Changes';
     $(".breadcrumb li:not(:first-child)").remove();
 
@@ -131,12 +131,12 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 				$scope.buildingSelectedModal = '';
 				$scope.floorSelectedModal = '';
 				$scope.btnType = 'Create';
+				console.log($scope.header);
 				break;
 			case 1:
 				$scope.header = 'Edit Campus';
 				$scope.campusSelectedModal = $scope.campusSelected;
 				$scope.campusInput = $scope.campusSelected;
-				$scope.campusInput = 'fdsfsd';
 				$scope.buildingSelectedModal = '';
 				$scope.floorSelectedModal = '';
 				$scope.btnType = 'Save Changes';

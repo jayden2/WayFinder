@@ -1,4 +1,4 @@
-app.controller('EditorController',['$scope', 'mapService', function($scope, mapService) {
+app.controller('EditorController',['$scope', '$location', 'mapService', function($scope, $location, mapService) {
 	mapService.success(function(data) {
 		$scope.maps = data;
 		var prevId, prevRoomName;
@@ -7,6 +7,8 @@ app.controller('EditorController',['$scope', 'mapService', function($scope, mapS
 		$scope.reverse = false;
 		$scope.entitiesState = true;
 		$scope.roomSelected = '';
+		$scope.url = $location.path();
+		console.log($scope.url);
 		$("[data-toggle=tooltip]").tooltip();
 		
 		$scope.order = function(predicate) {

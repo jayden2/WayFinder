@@ -96,6 +96,31 @@ footer:after {
   .floorSel button {
     padding-top: 8px; }
 
+.createBtn {
+  border-color: #dd4814; }
+
+.editBtn {
+  border-color: #dd4814; }
+
+.btn-primary {
+  background-color: #dd4814;
+  border-color: #dd4814; }
+
+.btn-primary:hover,
+.btn-primary.hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus {
+  background-color: #BB3E13;
+  border-color: #BB3E13; }
+
 .noSel {
   margin-left: -60px;
   text-align: center; }

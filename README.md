@@ -1,8 +1,6 @@
 # WayFinder
 ###Campus Portal Page
 <ul>
-	<li>change edit border color</li>
-	<li>confirm button colour change / enable/disable</li>
 	<li>modal edit button works</li>
 	<li>modal create button works</li>
 	<li>styling</li>

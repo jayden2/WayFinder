@@ -18,21 +18,26 @@ app.directive('modal', function () {
 			$scope.buildingInput = "";
 			$scope.floorInput = "";
 			$scope.createInput = "";
-			$scope.createInput = "";
 			$scope.campusChange = function(campusName) {
 				$scope.campusInput = campusName;
+				clearInput();
 			}
 			$scope.buildingChange = function(buildingName) {
 				$scope.buildingInput = buildingName;
+				clearInput();
 			}
 			$scope.floorChange = function(floorName) {
 				$scope.floorInput = floorName;
+				clearInput();
 			}
 			$scope.createChange = function(createName) {
 				$scope.createInput = createName;
+				clearInput();
 			}
-			$scope.callBackData = function(name) {
-				alert(name);
+			$scope.clearInput = function() {
+				$('#modal1').on('hidden.bs.modal', function (e) {
+					$(this).find("input,textarea,select").val('').end();
+				});
 			}
 		},
 	};

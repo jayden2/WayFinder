@@ -1,16 +1,12 @@
 # WayFinder
 ###Campus Portal Page
 <ul>
-	<li>modal edit button works</li>
-	<li>modal create button works</li>
-	<li>styling</li>
-	<li>hover animations</li>
-	<li>general transitions</li>
+	<li>binding and pushing</li>
+	<li>styling and transitions</li>
 </ul>
 ###Editor Page
 <ul>
+	<li>binding and pushing</li>
 	<li>log undo</li>
-	<li>styling</li>
-	<li>hover animations</li>
-	<li>general transitions</li>
+	<li>styling and transistions</li>
 </ul>

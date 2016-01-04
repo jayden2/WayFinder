@@ -3,7 +3,7 @@
 		"id": 1,
 		"name": "B223",
 		"link": true,
-		"favourite": false,
+		"category": "None",
 		"x": 11,
 		"polygons":
 		[
@@ -26,7 +26,7 @@
 		"id": 2,
 		"name": "B119",
 		"link": false,
-		"favourite": true,
+		"category": "Option 2",
 		"polygons":
 		[
 			{
@@ -48,7 +48,7 @@
 		"id": 3,
 		"name": "Z452",
 		"link": true,
-		"favourite": false,
+		"category": "None",
 		"polygons":
 		[
 			{
@@ -70,7 +70,7 @@
 		"id": 4,
 		"name": "F339",
 		"link": false,
-		"favourite": false,
+		"category": "None",
 		"polygons":
 		[
 			{
@@ -92,7 +92,7 @@
 		"id": 5,
 		"name": "K242",
 		"link": true,
-		"favourite": true,
+		"category": "Option 1",
 		"polygons":
 		[
 			{

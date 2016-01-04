@@ -42,7 +42,7 @@
 							<li><a href="" ng-click="order('nameA')">A - Z</a></li>
 							<li><a href="" ng-click="order('nameZ')">Z - A</a></li>
 							<li><a href="" ng-click="selectionFilter('unlink')">Unlinked nodes</a></li>
-							<li><a href="" ng-click="selectionFilter('favourite')">Favourites</a></li>
+							<li><a href="" ng-click="selectionFilter('category')">No category</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -63,7 +63,7 @@
 						<tr colspan="12" ng-repeat="map in filtered = (maps | filter:filters) | orderBy:predicate:reverse"
 							ng-class="{true: 'danger', false: 'default'}[!map.name.length]">
 							<td>{{ map.id }}</td>
-							<td><input type="text" ng-model="map.name" ng-focus="roomNameHolder(map.id, map.name)" ng-blur="log(2, map.id, map.name, 0)"
+							<td><input type="text" ng-model="map.name"  ng-focus="roomNameHolder(map.id, map.name)" ng-blur="log(2, map.id, map.name, 0)"
 							ng-keypress="checkEnterKey($event); checkEmpty($event, $index)"/></td>
 							<td>0</td>
 							<td>0</td>
@@ -72,20 +72,17 @@
 							</td>
 							<td>
 								<div class="dropdown" ng-show="entitiesState">
-									<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="filterCatText">{{ map.favourite }}</span> 
+									<button class="btn btn-default dropdown-toggle" data-id="{{ map.category }}" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ng-click="roomCategoryHolder(map.id, map.name, map.category)"><span class="filterCatText">{{ map.category }}</span> 
 									<span class="caret"></span>
 									</button>
 									<ul class="categorySelection dropdown-menu" aria-labelledby="dropdownMenu2">
-										<li><a href="" ng-click="">None</a></li>
-										<li><a href="" ng-click="">Option 1</a></li>
-										<li><a href="" ng-click="">Option 2</a></li>
+										<li><a href="" ng-click="log(0, map.id, map.name, 'none')">None</a></li>
+										<li><a href="" ng-click="log(0, map.id, map.name, 'option 1')">Option 1</a></li>
+										<li><a href="" ng-click="log(0, map.id, map.name, 'option 2')">Option 2</a></li>
 									</ul>
 								</div>
-								<!--
-								<a class="star fa fa-star fa-lg" data-id="{{ map.favourite }}" ng-class="{true: 'fa-star-o', false: 'fa-star'}[!map.favourite]"
-								ng-click="map.favourite = !map.favourite; log(0, map.id, map.name, map.favourite)"></a>-->
 							</td>
-							<td><a href="" class="selection" ng-click="selection(map.name)">select ></a></td>
+							<td><a href="" class="selection" ng-click="selection(map.id, map.name)">select ></a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -93,26 +90,26 @@
 				<table class="table table-striped" ng-show="!entitiesState">
 					<thead>
 						<tr>
-							<th ng-model="roomSelected">Room {{ roomSelected }} Information</th>
+							<th ng-model="roomSelected"><span ng-show="roomSelected.length">Room Name {{ roomSelected }}</span><span ng-model="idSelected" ng-show="!roomSelected.length">Room ID {{ idSelected }}</span> Information</th>
 							<th>Node Information</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>x</td>
-							<td>x</td>
+							<td ng-model="roomX">x: {{ map.x }}</td>
+							<td ng-model="nodeX">x: {{ map.x }}</td>
 						</tr>
 						<tr>
-							<td>y</td>
-							<td>y</td>
+							<td ng-model="roomY">y: {{ map.y }} </td>
+							<td ng-model="nodeY">y: {{ map.y }}</td>
 						</tr>
 						<tr>
-							<td>width</td>
-							<td>width</td>
+							<td ng-model="roomWidth">width: {{ map.width }}</td>
+							<td ng-model="nodeWidth">width: {{ map.width }}</td>
 						</tr>
 						<tr>
-							<td>height</td>
-							<td>height</td>
+							<td ng-model="roomHeight">height: {{ map.height }}</td>
+							<td ng-model="nodeHeight">height: {{ map.height }}</td>
 						</tr>
 					</tbody>
 				</table>	

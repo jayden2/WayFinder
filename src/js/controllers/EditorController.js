@@ -1,11 +1,12 @@
 app.controller('EditorController',['$scope', '$location', 'mapService', function($scope, $location, mapService) {
 	mapService.success(function(data) {
 		$scope.maps = data;
-		var prevId, prevRoomName;
+		var prevId, prevRoomName, prevCatname, prevCatId, prevCatCategory;
 		$scope.filters = { };
 		$scope.predicate = 'id';
 		$scope.reverse = false;
 		$scope.entitiesState = true;
+		$scope.idSelected = '';
 		$scope.roomSelected = '';
 		$scope.url = $location.path();
 		console.log($scope.url);
@@ -34,8 +35,8 @@ app.controller('EditorController',['$scope', '$location', 'mapService', function
 			$scope.filters = { };
 			if (query === 'unlink') {
 				$scope.filters.link = false;
-			} else if (query === 'favourite') {
-				$scope.filters.favourite = true;
+			} else if (query === 'category') {
+				$scope.filters.category = 'None';
 			} else {
 				$scope.filters = { };
 			}
@@ -51,6 +52,11 @@ app.controller('EditorController',['$scope', '$location', 'mapService', function
 			prevId = id;
 			prevRoomName = name;
 		}
+		$scope.roomCategoryHolder = function(id, name, category) {
+			prevCatId = id;
+			prevCatName = name;
+			prevCatCategory = category;
+		}
 		$scope.checkEnterKey = function($event) {
 			var keyCode = $event.which || $event.keyCode;
 			if (keyCode === 13 && prevRoomName != name) {
@@ -63,18 +69,18 @@ app.controller('EditorController',['$scope', '$location', 'mapService', function
 			var target = $event.target;
 			target.blur();
 		}
-		$scope.selection = function(name) {
+		$scope.selection = function(id, name) {
 			$scope.entitiesState = false;
+			$scope.idSelected = id;
 			$scope.roomSelected = name;
 		}
 		$scope.log = function(type, id, name, state) {
 			var logText, newEntry;
 			switch(type) {
 				case 0:
+				if (prevCatCategory != state) {
 					if (state) {
-						logText = "is now a favourite";						
-					} else {
-						logText = "is no longer a favourite";
+						logText = "has changed category from " + prevCatCategory + " to "  + state;						
 					}
 					if (name == "") {
 						newEntry = $('<li>' + 'Room ID: ' + id + ' ' + logText + '</li>');
@@ -82,6 +88,7 @@ app.controller('EditorController',['$scope', '$location', 'mapService', function
 						newEntry = $('<li>' + 'Room name: ' + name + ' ' + logText + '</li>');
 					}
 					updateLog(newEntry);
+				}
 				break;
 			case 1:
 				if (state) {

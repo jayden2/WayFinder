@@ -185,6 +185,14 @@ canvas {
 .table-hover > tbody > tr.active:hover > th {
   background-color: #d6d6d6; }
 
+.infoTable > thead > tr > th {
+  text-align: center;
+  max-width: 100%; }
+
+.infoTable > tbody > tr > td {
+  text-align: center;
+  max-width: 100%; }
+
 #showing {
   margin-top: -15px;
   padding-right: 10px;
@@ -213,22 +221,6 @@ canvas {
 .fa-times-circle {
   color: #FF3333;
   cursor: default; }
-
-.fa-star {
-  color: #FFCC00; }
-
-.fa-star-o {
-  color: #FFCC00; }
-
-.fa-star:hover {
-  color: #F6AE0D;
-  text-decoration: none;
-  cursor: pointer; }
-
-.fa-star-o:hover {
-  color: #F6AE0D;
-  text-decoration: none;
-  cursor: pointer; }
 
 .searchClear {
   color: #828080; }

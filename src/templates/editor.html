@@ -46,7 +46,7 @@
 						</ul>
 					</div>
 				</nav>
-				<table class="table table-striped table-hover" ng-show="entitiesState">
+				<table class="table table-striped table-hover infoTable" ng-show="entitiesState">
 					<thead>
 						<tr>
 							<th>#</th>
@@ -54,12 +54,13 @@
 							<th>x</th>
 							<th>y</th>
 							<th>Node Link</th>
-							<th>Favourite</th>
+							<th>Category</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr><td colspan="6" ng-hide="filtered.length">No results found!</td></tr>
-						<tr ng-repeat="map in filtered = (maps | filter:filters) | orderBy:predicate:reverse"
+						<tr colspan="12" ng-repeat="map in filtered = (maps | filter:filters) | orderBy:predicate:reverse"
 							ng-class="{true: 'danger', false: 'default'}[!map.name.length]">
 							<td>{{ map.id }}</td>
 							<td><input type="text" ng-model="map.name" ng-focus="roomNameHolder(map.id, map.name)" ng-blur="log(2, map.id, map.name, 0)"
@@ -70,8 +71,19 @@
 								<span class="fa fa-lg" data-id="{{ map.link }}" ng-class="{true: 'fa-times-circle', false: 'fa-check-circle'}[!map.link]"></span>
 							</td>
 							<td>
+								<div class="dropdown" ng-show="entitiesState">
+									<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="filterCatText">{{ map.favourite }}</span> 
+									<span class="caret"></span>
+									</button>
+									<ul class="categorySelection dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li><a href="" ng-click="">None</a></li>
+										<li><a href="" ng-click="">Option 1</a></li>
+										<li><a href="" ng-click="">Option 2</a></li>
+									</ul>
+								</div>
+								<!--
 								<a class="star fa fa-star fa-lg" data-id="{{ map.favourite }}" ng-class="{true: 'fa-star-o', false: 'fa-star'}[!map.favourite]"
-								ng-click="map.favourite = !map.favourite; log(0, map.id, map.name, map.favourite)"></a>
+								ng-click="map.favourite = !map.favourite; log(0, map.id, map.name, map.favourite)"></a>-->
 							</td>
 							<td><a href="" class="selection" ng-click="selection(map.name)">select ></a></td>
 						</tr>

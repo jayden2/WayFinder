@@ -22,6 +22,12 @@ $(document).ready(function() {
 		e.preventDefault();
     	$(".filterText").text(this.innerHTML);
 	});
+	//changes category selection
+	$(document).on('click', '.dropdown .categorySelection a', function(e) 
+	{
+		e.preventDefault();
+    	$(this).closest(".dropdown").find('.filterCatText').text(this.innerHTML);
+	});
 	//swtich selection between entities and selection
 	$(document).on('click', '.tableNav li', function(e)
 	{

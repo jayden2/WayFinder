@@ -1,4 +1,4 @@
-app.controller('EditorController',['$scope', '$location', 'mapService', function($scope, $location, mapService) {
+app.controller('EditorController',['$scope', '$compile', '$location', 'mapService', function($scope, $compile, $location, mapService) {
 	mapService.success(function(data) {
 		$scope.maps = data;
 		var prevId, prevRoomName, prevCatname, prevCatId, prevCatCategory;
@@ -118,10 +118,19 @@ app.controller('EditorController',['$scope', '$location', 'mapService', function
 				break;
 			}
 		}
+		$scope.undo = function(event) {
+			$(".log ul").prepend('Undo Made');
+			console.log(event.target);
+			$(event.taget).remove();
+			
+		}
 		function updateLog(newEntry) {
 			$("#filler").remove();
 			$(".log ul").prepend(newEntry);
 			$(".log li:nth-child(5)").remove();
+			
+			var undoButton='<span class="undo"> | <a href="" ng-click="undo($event)">undo</a></span>';
+			angular.element($(".log li:first-child")).append($compile(undoButton)($scope));
 		}
 	});
 }]);

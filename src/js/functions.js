@@ -40,4 +40,10 @@ $(document).ready(function() {
 		$(".tableNav li.active").removeClass("active");
 		$(".tableNav li:nth-child(2)").addClass("active");
 	});
+	//undo button
+	$(document).on('click', '.undo a', function(e)
+	{
+		e.preventDefault();
+		e.target.blur();
+	});
 });

@@ -1,7 +1,8 @@
 app.controller('EditorController',['$scope', '$compile', '$location', 'mapService', function($scope, $compile, $location, mapService) {
 	mapService.success(function(data) {
 		$scope.maps = data;
-		var prevId, prevRoomName, prevCatname, prevCatId, prevCatCategory;
+		var prevId, prevRoomName, prevCatName, prevCatId, prevCatCategory;
+		var undoHolder = new Array(1,2,3,4);
 		$scope.filters = { };
 		$scope.predicate = 'id';
 		$scope.reverse = false;
@@ -75,6 +76,10 @@ app.controller('EditorController',['$scope', '$compile', '$location', 'mapServic
 			$scope.roomSelected = name;
 		}
 		$scope.log = function(type, id, name, state) {
+			var logInfo = {type:type, id:id, name:name, state:state, prevId:prevId, prevCatId,prevCatId, prevRoomName:prevRoomName, prevCatName:prevCatName, prevCatCategory:prevCatCategory};
+			undoHolder.pop();
+			undoHolder.unshift(logInfo);
+			
 			var logText, newEntry;
 			switch(type) {
 				case 0:
@@ -119,18 +124,22 @@ app.controller('EditorController',['$scope', '$compile', '$location', 'mapServic
 			}
 		}
 		$scope.undo = function(event) {
-			$(".log ul").prepend('Undo Made');
-			console.log(event.target);
-			$(event.taget).remove();
-			
+			var whatNumElement;
+			whatNumElement = ($('.log li').index((event.target).closest('li')));
+			$(event.target).closest('li').remove();
+			var undoEntry = '<li class="undoEntry">' + 'Undo Made to ' + (whatNumElement) + '</li>';
+			updateLog(undoEntry);
 		}
+
 		function updateLog(newEntry) {
 			$("#filler").remove();
 			$(".log ul").prepend(newEntry);
 			$(".log li:nth-child(5)").remove();
 			
-			var undoButton='<span class="undo"> | <a href="" ng-click="undo($event)">undo</a></span>';
-			angular.element($(".log li:first-child")).append($compile(undoButton)($scope));
+			if (!$(".log li:first-child").hasClass("undoEntry")) {
+				var undoButton='<span class="undo"> | <a href="" ng-click="undo($event)">undo</a></span>';
+				angular.element($(".log li:first-child")).append($compile(undoButton)($scope));	
+			}
 		}
 	});
 }]);

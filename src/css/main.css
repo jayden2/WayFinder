@@ -209,11 +209,13 @@ canvas {
   .log li:nth-child(even) {
     background-color: #F9F9F9; }
   .log li {
+    padding-left: 5px;
+    padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 10px;
     width: 100%;
     list-style-type: square; }
-  .log .undo {
+  .log .undo a {
     cursor: pointer; }
 
 .fa-check-circle {

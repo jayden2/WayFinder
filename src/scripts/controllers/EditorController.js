@@ -2,7 +2,7 @@ app.controller('EditorController',['$scope', '$compile', '$location', 'mapServic
 	mapService.success(function(data) {
 		$scope.maps = data;
 		var prevId, prevRoomName, prevCatName, prevCatId, prevCatCategory;
-		var undoHolder = new Array(1,2,3,4);
+		
 		$scope.filters = { };
 		$scope.predicate = 'id';
 		$scope.reverse = false;
@@ -77,20 +77,19 @@ app.controller('EditorController',['$scope', '$compile', '$location', 'mapServic
 		}
 		$scope.log = function(type, id, name, state) {
 			var logInfo = {type:type, id:id, name:name, state:state, prevId:prevId, prevCatId,prevCatId, prevRoomName:prevRoomName, prevCatName:prevCatName, prevCatCategory:prevCatCategory};
-			undoHolder.pop();
-			undoHolder.unshift(logInfo);
+			updateUndoManager(logInfo);
 			
 			var logText, newEntry;
 			switch(type) {
 				case 0:
 				if (prevCatCategory != state) {
 					if (state) {
-						logText = "has changed category from " + prevCatCategory + " to "  + state;						
+						logText = "has changed category from <b>" + prevCatCategory + "</b> to <b>"  + state + "</b>";						
 					}
 					if (name == "") {
-						newEntry = $('<li>' + 'Room ID: ' + id + ' ' + logText + '</li>');
+						newEntry = $('<li>' + 'Room ID: <b>' + id + '</b> ' + logText + '</li>');
 					} else {
-						newEntry = $('<li>' + 'Room name: ' + name + ' ' + logText + '</li>');
+						newEntry = $('<li>' + 'Room name: <b>' + name + '</b> ' + logText + '</li>');
 					}
 					updateLog(newEntry);
 				}
@@ -102,9 +101,9 @@ app.controller('EditorController',['$scope', '$compile', '$location', 'mapServic
 						logText = "is now unlinked";
 					}
 					if (name == "") {
-						newEntry = $('<li>' + 'Room ID: ' + id + ' ' + logText + '</li>');
+						newEntry = $('<li>' + 'Room ID: <b>' + id + '</b> ' + logText + '</li>');
 					} else {
-						newEntry = $('<li>' + 'Room name: ' + name + ' ' + logText + '</li>');
+						newEntry = $('<li>' + 'Room name: <b>' + name + '</b> ' + logText + '</li>');
 					}
 					updateLog(newEntry);
 				break;
@@ -112,11 +111,11 @@ app.controller('EditorController',['$scope', '$compile', '$location', 'mapServic
 				if (prevRoomName != name) {
 					logText = "has changed to";
 					if (name == "") {
-						newEntry = $('<li>' + 'Room ID: ' + id + ' ' + logText + ' ' + "an empty string" + '</li>');
+						newEntry = $('<li>' + 'Room ID: <b>' + id + '</b> ' + logText + ' ' + "an empty string" + '</li>');
 					} else if (prevRoomName == ''){
-						newEntry = $('<li>' + 'Room ID: ' + id + ' ' + logText + ' Room name: ' + name + '</li>');
+						newEntry = $('<li>' + 'Room ID: <b>' + id + '</b> ' + logText + ' Room name: <b>' + name + '</b></li>');
 					} else {
-						newEntry = $('<li>' + 'Room ID: ' + id + ' changed from Room name: ' + prevRoomName + ' ' + ' to ' + name + '</li>');
+						newEntry = $('<li>' + 'Room ID: <b>' + id + '</b> changed from Room name: <b>' + prevRoomName + '</b> ' + ' to <b>' + name + '</b></li>');
 					}
 					updateLog(newEntry);
 				}
@@ -124,21 +123,18 @@ app.controller('EditorController',['$scope', '$compile', '$location', 'mapServic
 			}
 		}
 		$scope.undo = function(event) {
-			var whatNumElement;
-			whatNumElement = ($('.log li').index((event.target).closest('li')));
-			$(event.target).closest('li').remove();
-			var undoEntry = '<li class="undoEntry">' + 'Undo Made to ' + (whatNumElement) + '</li>';
-			updateLog(undoEntry);
+			var newEntry = undoAction(event);
+			updateLog(newEntry);
+			updateUndoManager('undone');
 		}
-
 		function updateLog(newEntry) {
 			$("#filler").remove();
 			$(".log ul").prepend(newEntry);
 			$(".log li:nth-child(5)").remove();
-			
+	
 			if (!$(".log li:first-child").hasClass("undoEntry")) {
 				var undoButton='<span class="undo"> | <a href="" ng-click="undo($event)">undo</a></span>';
-				angular.element($(".log li:first-child")).append($compile(undoButton)($scope));	
+				angular.element($(".log li:first-child")).append($compile(undoButton)($scope));
 			}
 		}
 	});

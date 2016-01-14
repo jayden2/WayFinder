@@ -1,9 +1,4 @@
-node_modules/grunt-contrib-clean/
-node_modules/grunt-contrib-connet/
-node_modules/grunt-contrib-cssmin/
-node_modules/grunt-contrib-htmlmin/
-node_modules/grunt-contrib-sass/
-node_modules/grunt-contrib-uglify/
-node_modules/grunt-contrib-watch/
-node_modules/grunt-contrib-copy/
+node_modules/
+bower_components/
 build/
+.sass-cache/

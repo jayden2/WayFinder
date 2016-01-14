@@ -11,7 +11,7 @@ app.directive('modal', function () {
 			btnType: '=modalBtn',
 			modalName: '@'
 		},
-		templateUrl: 'js/directives/modal-edit.html',
+		templateUrl: 'scripts/directives/modal-edit.html',
 		transclude: true,
 		link: function ($scope) {
 			$scope.campusInput = "";

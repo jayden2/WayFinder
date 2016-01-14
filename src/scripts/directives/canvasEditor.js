@@ -4,6 +4,6 @@ app.directive('canvasEditor', function() {
 		scope: {
 			editor: '='
 		},
-		templateUrl: 'js/directives/canvas-editor.html'
+		templateUrl: 'scripts/directives/canvas-editor.html'
 	};
 });

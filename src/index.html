@@ -4,19 +4,20 @@
 	<meta charset="UTF-8">
 	<title>Way Finder</title>
 	<!--Bootstrap css-->
-	<link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="scripts/vendor/bootstrap.min.css">
 	<!--Font-awesome css-->
-	<link rel="stylesheet" href="vendor/font-awesome/font-awesome.min.css">
-	<!--jQuery javascript-->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<!--Angular Library-->
-	<script src="vendor/angular/angular.min.js"></script>
-	<!--Angular Route Library-->
-	<script src="vendor/angular-route/angular-route.min.js"></script>
-	<!--Bootstrap javascript-->
-	<script src="vendor/bootstrap/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="scripts/vendor/font-awesome.min.css">
 	<!--Main Page Styling-->
 	<link rel="stylesheet" href="css/main.css">
+	<!--jQuery javascript-->
+	<script src="scripts/vendor/jquery.min.js"></script>
+	<!--Angular Library-->
+	<script src="scripts/vendor/angular.min.js"></script>
+	<!--Angular Route Library-->
+	<script src="scripts/vendor/angular-route.min.js"></script>
+	<!--Bootstrap javascript-->
+	<script src="scripts/vendor/bootstrap.min.js"></script>
+	
 </head>
 <body ng-app="WayFinder">
 	<div class="topBar"></div>
@@ -31,19 +32,19 @@
 		</header>
 	</div>
 	<div ng-view></div>
-	<!-- Modules -->
-	<script src="js/app.js"></script>
+	<!-- App Module -->
+	<script src="scripts/app.js"></script>
 	<!-- Controllers -->
-	<script src="js/controllers/EditorController.js"></script>
-	<script src="js/controllers/DashboardController.js"></script>
+	<script src="scripts/controllers/EditorController.js"></script>
+	<script src="scripts/controllers/DashboardController.js"></script>
 	<!-- Directives -->
-	<script src="js/directives/canvasEditor.js"></script>
-	<script src="js/directives/editModal.js"></script>
+	<script src="scripts/directives/canvasEditor.js"></script>
+	<script src="scripts/directives/editModal.js"></script>
 	<!-- Services -->
-	<script src="js/services/dashboardService.js"></script>
-	<script src="js/services/mapService.js"></script>
+	<script src="scripts/services/dashboardService.js"></script>
+	<script src="scripts/services/mapService.js"></script>
 	<!-- Functions -->
-	<script src="js/functions.js"></script>
-	<script src="js/dashboardFunctions.js"></script>
+	<script src="scripts/functions.js"></script>
+	<script src="scripts/dashboardFunctions.js"></script>
 </body>
 </html>

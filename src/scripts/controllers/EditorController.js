@@ -78,49 +78,8 @@ app.controller('EditorController',['$scope', '$compile', '$location', 'mapServic
 		$scope.log = function(type, id, name, state) {
 			var logInfo = {type:type, id:id, name:name, state:state, prevId:prevId, prevCatId,prevCatId, prevRoomName:prevRoomName, prevCatName:prevCatName, prevCatCategory:prevCatCategory};
 			updateUndoManager(logInfo);
-			
-			var logText, newEntry;
-			switch(type) {
-				case 0:
-				if (prevCatCategory != state) {
-					if (state) {
-						logText = "has changed category from <b>" + prevCatCategory + "</b> to <b>"  + state + "</b>";						
-					}
-					if (name == "") {
-						newEntry = $('<li>' + 'Room ID: <b>' + id + '</b> ' + logText + '</li>');
-					} else {
-						newEntry = $('<li>' + 'Room name: <b>' + name + '</b> ' + logText + '</li>');
-					}
-					updateLog(newEntry);
-				}
-				break;
-			case 1:
-				if (state) {
-						logText = "is now linked";
-					} else {
-						logText = "is now unlinked";
-					}
-					if (name == "") {
-						newEntry = $('<li>' + 'Room ID: <b>' + id + '</b> ' + logText + '</li>');
-					} else {
-						newEntry = $('<li>' + 'Room name: <b>' + name + '</b> ' + logText + '</li>');
-					}
-					updateLog(newEntry);
-				break;
-			case 2:
-				if (prevRoomName != name) {
-					logText = "has changed to";
-					if (name == "") {
-						newEntry = $('<li>' + 'Room ID: <b>' + id + '</b> ' + logText + ' ' + "an empty string" + '</li>');
-					} else if (prevRoomName == ''){
-						newEntry = $('<li>' + 'Room ID: <b>' + id + '</b> ' + logText + ' Room name: <b>' + name + '</b></li>');
-					} else {
-						newEntry = $('<li>' + 'Room ID: <b>' + id + '</b> changed from Room name: <b>' + prevRoomName + '</b> ' + ' to <b>' + name + '</b></li>');
-					}
-					updateLog(newEntry);
-				}
-				break;
-			}
+			var logEntry = logManager(type, state, id, name, prevRoomName, prevCatCategory);
+			updateLog(logEntry);
 		}
 		$scope.undo = function(event) {
 			var newEntry = undoAction(event);

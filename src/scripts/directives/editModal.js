@@ -20,6 +20,7 @@ app.directive('modal', function () {
 		},
 		templateUrl: 'scripts/directives/modal-edit.html',
 		transclude: true,
+		replace:true,
 		link: function ($scope) {
 			$scope.campusAbbrInput = "";
 			$scope.campusNameInput = "";

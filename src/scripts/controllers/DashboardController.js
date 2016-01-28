@@ -29,40 +29,40 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 	$scope.buildingIs = false;
 	$scope.floorIs = false;
 	//---------------------------
-    $scope.header = '???';
-    $scope.body = '???';
-    $scope.btnType = 'Save Changes';
+  $scope.header = '???';
+  $scope.body = '???';
+  $scope.btnType = 'Save Changes';
 	//-----------------------------
-    $(".breadcrumb li:not(:first-child)").remove();
+  $(".breadcrumb li:not(:first-child)").remove();
 
-    $scope.dashboardState = function(change) {
-			switch(change) {
-				case 0:
-					$scope.campusSelectionState = true;
-					$scope.fillerState = false;
-					$scope.settingsState = false;
-					$scope.helpState = false;
-					break;
-				case 1:
-					$scope.campusSelectionState = false;
-					$scope.fillerState = true;
-					$scope.settingsState = false;
-					$scope.helpState = false;
-					break;
-				case 2:
-					$scope.campusSelectionState = false;
-					$scope.fillerState = false;
-					$scope.settingsState = true;
-					$scope.helpState = false;
-					break;
-				case 3:
-					$scope.campusSelectionState = false;
-					$scope.fillerState = false;
-					$scope.settingsState = false;
-					$scope.helpState = true;
-					break;
-			}
+  $scope.dashboardState = function(change) {
+		switch(change) {
+			case 0:
+				$scope.campusSelectionState = true;
+				$scope.fillerState = false;
+				$scope.settingsState = false;
+				$scope.helpState = false;
+				break;
+			case 1:
+				$scope.campusSelectionState = false;
+				$scope.fillerState = true;
+				$scope.settingsState = false;
+				$scope.helpState = false;
+				break;
+			case 2:
+				$scope.campusSelectionState = false;
+				$scope.fillerState = false;
+				$scope.settingsState = true;
+				$scope.helpState = false;
+				break;
+			case 3:
+				$scope.campusSelectionState = false;
+				$scope.fillerState = false;
+				$scope.settingsState = false;
+				$scope.helpState = true;
+				break;
 		}
+	}
 	$scope.campusSelect = function(campus) {
 		$scope.campusData = campus;
 		$scope.campusIs = true;

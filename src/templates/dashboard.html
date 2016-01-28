@@ -1,8 +1,8 @@
 <div>
 <div class="container" ng-controller="DashboardController">
-	<modal modal-name="modal1" modal-header="header" 
+	<modal modal-name="modal1" modal-header="header"
 	modal-campus-abbr="campusAbbrModal" modal-campus-name="campusNameModal" modal-campus-lat="campusLatModal" modal-campus-long="campusLongModal" modal-campus-zoom="campusZoomModal"
-	modal-building-name="buildingNameModal"
+	modal-building-name="buildingNameModal" modal-building-address="buildingAddressModal" modal-building-lat="buildingLatModal" modal-building-long="buildingLongModal"
 	modal-floor-name="floorNameModal"
 	modal-btn="btnType" data-ng-right-button="myRightButton()"></modal>
 	<ul class="dashNav nav nav-tabs nav-justified">
@@ -18,7 +18,7 @@
 				<li role="presentation" ng-repeat="campus in campuses | orderBy: 'name'" ng-click="campusSelect(campus); checkUnclick()"><a href="">{{ campus.name }}</a></li>
 				<button ng-click="changeCampus(0)" href="#modal1" type="button" class="createBtn btn btn-default" data-toggle="modal" ng-show="!campusIs">Create Campus+</button>
 				<button ng-click="changeCampus(1)" href="#modal1" type="button" class="editBtn btn btn-default" data-toggle="modal" ng-show="campusIs">Edit Campus</button>
-				
+
 			</ul>
 		</section>
 		<section class="buildingSel col-xs-4">

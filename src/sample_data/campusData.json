@@ -1,38 +1,67 @@
 [
 	{
 		"name": "Perth",
+		"id": "P",
+		"lat": "11",
+		"long": "64",
+		"zoom": "1.4",
 		"building": [
 		{
 			"name": "Building 1",
-			"floor": [{"name": "Floor 1"}]
+			"address": "123 Street",
+			"lat": "99",
+			"long": "19",
+			"floor": [{"name": "Floor 1", "image": ""}]
 		},
 		{
 			"name": "Building 2",
-			"floor": [{"name": "Floor 1"}, {"name": "Floor 2"}]
+			"address": "99 Ave",
+			"lat": "4",
+			"long": "88",
+			"floor": [{"name": "Floor 1", "image": "image.jpg"}, {"name": "Floor 2", "image": "image.jpg"}]
 		},
 		{
 			"name": "Building 6",
-			"floor": [{"name": "Floor 1"}, {"name": "Floor 2"}]
+			"address": "7 Bool",
+			"lat": "3242",
+			"long": "4449",
+			"floor": [{"name": "Floor 1", "image": "image.jpg"}, {"name": "Floor 2", "image": ""}]
 		}]
 		},
 	{
 		"name": "East Perth",
+		"id": "EP",
+		"lat": "52",
+		"long": "902",
+		"zoom": "2.3",
 		"building": [
 		{
 			"name": "Building 1",
-			"floor": [{"name": "Floor 1"}, {"name": "Floor 2"}]
+			"address": "1 sss Street",
+			"lat": "343",
+			"long": "6649",
+			"floor": [{"name": "Floor 1", "image": ""}, {"name": "Floor 2", "image": "image.jpg"}]
 		},
 		{
 			"name": "Building 3",
-			"floor": [{"name": "Floor 1"}]
+			"address": "22 R Street",
+			"lat": "366",
+			"long": "44",
+			"floor": [{"name": "Floor 1", "image": ""}]
 		},
 		{
 			"name": "Building 9",
-			"floor": [{"name": "Floor 1"}, {"name": "Floor 2"}]
+			"address": "22.5 K Street",
+			"lat": "55",
+			"long": "1559",
+			"floor": [{"name": "Floor 1", "image": ""}, {"name": "Floor 2", "image": "image.jpg"}]
 		},
 		{
 			"name": "Building 7",
-			"floor": [{"name": "Floor 1"}]
+			"address": "88 J Street",
+			"lat": "92349",
+			"long": "686",
+			"floor": [{"name": "Floor 1", "image": "image.jpg"}]
 		}]
 	}
 ]

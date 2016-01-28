@@ -133,6 +133,9 @@ footer:after {
 .fa-exclamation-triangle {
   color: #FFCC00; }
 
+.fa-check-circle {
+  color: #35DE27; }
+
 canvas {
   background-color: #999999; }
 
@@ -219,7 +222,7 @@ canvas {
     cursor: pointer; }
 
 .fa-check-circle {
-  color: #66CC33;
+  color: #35DE27;
   cursor: default; }
 
 .fa-times-circle {

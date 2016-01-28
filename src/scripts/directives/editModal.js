@@ -11,6 +11,9 @@ app.directive('modal', function () {
 			campusLong: '=modalCampusLong',
 			campusZoom: '=modalCampusZoom',
 			buildingName: '=modalBuildingName',
+			buildingAddress: '=modalBuildingAddress',
+			buildingLat: '=modalBuildingLat',
+			buildingLong: '=modalBuildingLong',
 			floorName: '=modalFloorName',
 			btnType: '=modalBtn',
 			modalName: '@'
@@ -23,8 +26,11 @@ app.directive('modal', function () {
 			$scope.campusLongInput = "";
 			$scope.campusLatInput = "";
 			$scope.campusZoomInput = "";
-			$scope.buildingInput = "";
-			$scope.floorInput = "";
+			$scope.buildingNameInput = "";
+			$scope.buildingAddressInput = "";
+			$scope.buildingLatInput = "";
+			$scope.buildingLongInput = "";
+			$scope.floorNameInput = "";
 			$scope.createInput = "";
 			$scope.campusChange = function(type, data) {
 				switch(type) {
@@ -46,12 +52,29 @@ app.directive('modal', function () {
 				}
 				$scope.clearInput();
 			}
-			$scope.buildingChange = function(buildingName) {
-				$scope.buildingInput = buildingName;
+			$scope.buildingChange = function(type, data) {
+				switch(type) {
+					case 0:
+						$scope.buildingNameInput = data;
+						break;
+					case 1:
+						$scope.buildingAddressInput = data;
+						break;
+					case 2:
+						$scope.buildingLatInput = data;
+						break;
+					case 3:
+						$scope.buildingLongInput = data;
+						break;
+					}
 				$scope.clearInput();
 			}
-			$scope.floorChange = function(floorName) {
-				$scope.floorInput = floorName;
+			$scope.floorChange = function(type, data) {
+				switch(type) {
+					case 0:
+						$scope.floorNameInput = data;
+						break;
+					}
 				$scope.clearInput();
 			}
 			$scope.campusCreateData = function(createName) {
@@ -67,9 +90,17 @@ app.directive('modal', function () {
 				$scope.clearInput();
 			}
 			$scope.clearInput = function() {
-				$('#modal1').on('hidden.bs.modal', function (e) {
-					$(this).find("input,textarea,select").val('').end();
-				});
+				$scope.campusAbbrInput = "";
+				$scope.campusNameInput = "";
+				$scope.campusLongInput = "";
+				$scope.campusLatInput = "";
+				$scope.campusZoomInput = "";
+				$scope.buildingNameInput = "";
+				$scope.buildingAddressInput = "";
+				$scope.buildingLatInput = "";
+				$scope.buildingLongInput = "";
+				$scope.floorNameInput = "";
+				$scope.createInput = "";
 			}
 			$scope.editCampus = function() {
 				//

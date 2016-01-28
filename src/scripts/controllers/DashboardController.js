@@ -19,6 +19,9 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 	$scope.campusZoomModal = '';
 	//----------------------------
 	$scope.buildingNameModal = '';
+	$scope.buildingAddressModal = '';
+	$scope.buildingLatModal = '';
+	$scope.buildingLongModal = '';
 	//----------------------------
 	$scope.floorNameModal = '';
 	//----------------------------
@@ -29,7 +32,7 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
     $scope.header = '???';
     $scope.body = '???';
     $scope.btnType = 'Save Changes';
-    //-----------------------------
+	//-----------------------------
     $(".breadcrumb li:not(:first-child)").remove();
 
     $scope.dashboardState = function(change) {
@@ -121,8 +124,10 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 	confirmReady = function(check) {
 		if (check) {
 			$(".confirmBtn a").removeClass('disabled');
+			imageCheck(true);
 		} else {
 			$(".confirmBtn a").addClass('disabled');
+			imageCheck(false);
 		}
 	}
 	$scope.breadcrumbChange = function() {
@@ -142,57 +147,66 @@ app.controller('DashboardController',['$scope', 'dashboardService', function($sc
 				break;
 			case 1:
 				$scope.header = 'Edit Campus';
-				campusModal();//needs filling
+				campusModal();
 				buildingModal();
 				floorModal();
-				$scope.campusNameModal = $scope.campusData.name;
 				$scope.btnType = 'Save Changes';
 				break;
 			case 2:
 				$scope.header = 'Create Buidling';
-				campusModal(); //needs filling
+				campusModal();
 				buildingModal();
 				floorModal();
 				$scope.btnType = 'Create';
 				break;
 			case 3:
 				$scope.header = 'Edit Building';
-				campusModal(); //needs filling
-				buildingModal(); //needs filling
+				campusModal();
+				buildingModal();
 				floorModal();
-				$scope.buildingInput = $scope.buildingData.name;
 				$scope.btnType = 'Save Changes';
 				break;
 			case 4:
 				$scope.header = 'Create Floor';
-				campusModal(); //needs filling
-				buildingModal(); //needs filling
+				campusModal();
+				buildingModal();
 				floorModal();
 				$scope.btnType = 'Create';
 				break;
 			case 5:
 				$scope.header = 'Edit Floor';
-				campusModal(); //needs filling
-				buildingModal(); //needs filling
-				floorModal(); //needs filling
-				$scope.floorInput = $scope.floorData.name;
+				campusModal();
+				buildingModal();
+				floorModal();
 				$scope.btnType = 'Save Changes';
 				break;
 		}
 	}
 	campusModal = function() {
-		$scope.campusAbbrModal = $scope.campusData.campusId;
+		$scope.campusAbbrModal = $scope.campusData.id;
 		$scope.campusNameModal = $scope.campusData.name;
-		$scope.campusLatModal = $scope.campusData.campusLat;
-		$scope.campusLongModal = $scope.campusData.campusLong;
-		$scope.campusZoomModal = $scope.campusData.campusLong;
-
-		alert($scope.campusNameModal);
+		$scope.campusLatModal = $scope.campusData.lat;
+		$scope.campusLongModal = $scope.campusData.long;
+		$scope.campusZoomModal = $scope.campusData.zoom;
 	}
-	buildingModal = function(name) {
-		$scope.buildingNameModal = name;
+	buildingModal = function() {
+		$scope.buildingNameModal = $scope.buildingData.name;
+		$scope.buildingAddressModal = $scope.buildingData.address;
+		$scope.buildingLatModal = $scope.buildingData.lat;
+		$scope.buildingLongModal = $scope.buildingData.long;
 	}
-	floorModal = function(name) {
-		$scope.floorNameModal = name;
+	floorModal = function() {
+		$scope.floorNameModal = $scope.floorData.name;
+	}
+	imageCheck = function(check) {
+		if ($scope.floorData.image && check) {
+			$(".confirmBtn span").removeClass('fa-exclamation-triangle');
+			$(".confirmBtn span").addClass('fa-check-circle');
+		} else {
+			if(!$(".confirmBtn span").hasClass('fa-exclamation-triangle')) {
+				$(".confirmBtn span").removeClass('fa-check-circle');
+				$(".confirmBtn span").addClass('fa-exclamation-triangle');
+			}
+		}
 	}
 }]);

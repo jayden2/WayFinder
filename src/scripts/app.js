@@ -1,5 +1,5 @@
 var app = angular.module('WayFinder', ['ngRoute']);
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 	.when('/', {
 		controller: 'DashboardController',
@@ -12,4 +12,7 @@ app.config(function($routeProvider) {
 	.otherwise({
 		redirectTo: '/'
 	});
+	//this is to remove the hash(#) using the history api, cannot use locally
+	//see index.html <base>
+	//$locationProvider.html5Mode(true);
 });

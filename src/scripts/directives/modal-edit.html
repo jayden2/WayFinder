@@ -2,16 +2,16 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="clearInput()">&times;</button>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="clearInput()">&#x274C;</button>
 				<h4 class="modal-title">{{ header }}</h4>
 			</div>
 			<p class="modal-header" ng-show="campusName.length"><span><b>Path:</b> Campus: {{ campusName }}</span><span ng-show="buildingName.length"> <b>></b> Building: {{ buildingName }}</span><span ng-show="floorName.length"> <b>></b> Floor: {{ floorName }}</span></p>
 			<div class="modal-body">
 				<form>
 					<fieldset ng-if="header == 'Edit Campus'">
-						<label for="campusAbbr">Abbr:</label>
+						<label for="campusAbbr">Abbr Name:</label>
 						<input type="text" name="campusAbbr" ng-model="campusAbbr" placeholder="{{ campusAbbr }}" ng-change="campusChange(0, campusAbbr)" />
-						<label for="campusName">Name:</label>
+						<label for="campusName">Name of Campus:</label>
 						<input type="text" name="campusName" ng-model="campusName" placeholder="{{ campusName }}" ng-change="campusChange(1, campusName)" />
 						<label for="campusLat">Latitude:</label>
 						<input type="text" name="campusLat" ng-model="campusLat" placeholder="{{ campusLat }}" ng-change="campusChange(2, campusLat)" />
@@ -21,12 +21,18 @@
 						<input type="text" name="campusZoom" ng-model="campusZoom" placeholder="{{ campusZoom }}" ng-change="campusChange(4, campusZoom)" />
 					</fieldset>
 					<fieldset ng-if="header == 'Edit Building'">
-						<label for="buildingName">Name:</label>
-						<input type="text" name="buildingName" ng-model="buildingName" placeholder="{{ campus }}" ng-change="buildingChange(buildingName)" />
+						<label for="buildingName">Name of Building:</label>
+						<input type="text" name="buildingName" ng-model="buildingName" placeholder="{{ buildingName }}" ng-change="buildingChange(0, buildingName)" />
+						<label for="buildingName">Address:</label>
+						<input type="text" name="buildingAddress" ng-model="buildingAddress" placeholder="{{ buildingAddress }}" ng-change="buildingChange(1, buildingAddress)" />
+						<label for="campusLat">Latitude:</label>
+						<input type="text" name="buildingLat" ng-model="buildingLat" placeholder="{{ buildingLat }}" ng-change="buildingChange(2, buildingLat)" />
+						<label for="campusLong">Longitude:</label>
+						<input type="text" name="buildingLong" ng-model="buildingLong" placeholder="{{ buildingLong }}" ng-change="buildingChange(3, buildingLong)" />
 					</fieldset>
 					<fieldset ng-if="header == 'Edit Floor'">
 						<label for="floorName">Name:</label>
-						<input type="text" name="floorName" ng-model="floorName" placeholder="{{ campus }}" ng-change="floorChange(floorName)" />
+						<input type="text" name="floorName" ng-model="floorName" placeholder="{{ campus }}" ng-change="floorChange(0, floorName)" />
 					</fieldset>
 			        <fieldset ng-if="header == 'Create Campus'">
 			        	<label for="createInput">{{ header }} name:</label>
